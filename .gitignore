@@ -6,6 +6,19 @@ web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
 
+# Plugin Whitelist
+
+# W3 Total Cache
+web/app/cache/
+web/app/w3tc-config/
+
+# EWWW image optimizer
+web/app/ewww/
+
+# Theme managed as seperate git repo
+# **todo** add this as a submodule or just merge with this repo
+web/app/themes/mondrian/
+
 # WordPress
 web/wp
 web/.htaccess
