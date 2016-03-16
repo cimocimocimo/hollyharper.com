@@ -1,0 +1,14 @@
+/* styles for IE 6 */
+
+#wrap {
+	height: 100%; /* ie6 doesn't do min-height this is needed to get the footer to stick to the bottom of the page */
+}
+
+/* these two styles move the elements one pixel down since IE 6 positions theme one pixel up from the other browsers */
+#main-nav {
+	bottom: 30px;
+}
+
+#breadcrumbs {
+	bottom: 0;
+}

@@ -30,10 +30,6 @@ web/app/w3tc-config/
 # EWWW image optimizer
 web/app/ewww/
 
-# Theme managed as seperate git repo
-# **todo** add this as a submodule or just merge with this repo
-web/app/themes/mondrian/
-
 # WordPress
 web/wp
 web/.htaccess
@@ -57,3 +53,6 @@ node_modules
 # Vagrant
 bin
 .vagrant
+
+# SASS cache
+.sass-cache

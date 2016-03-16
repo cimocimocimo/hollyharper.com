@@ -1,0 +1,898 @@
+/* line 2, ../sass/main.sass */
+textarea:focus, input:focus {
+  outline: none; }
+
+/* This defines all the main layout styles for the site. The main grid and positioning of all major elements */
+/* basic element styles */
+/* line 7, ../sass/main.sass */
+h1, h2, h3 {
+  margin: 10px 20px 5px; }
+
+/* line 10, ../sass/main.sass */
+h4, h5 {
+  margin: 5px 20px; }
+
+/* line 13, ../sass/main.sass */
+p {
+  margin: 10px 20px; }
+
+/* generic classes */
+/* line 17, ../sass/main.sass */
+.row {
+  margin: 0 auto;
+  width: 960px;
+  text-align: left;
+  overflow: hidden; }
+
+/* #main must be the div row that preceeds the footer row, otherwise things break */
+/* line 24, ../sass/main.sass */
+.last-row {
+  overflow: hidden;
+  padding-bottom: 133px;
+  /* must be same height as the footer */ }
+
+/* line 29, ../sass/main.sass */
+.first-row .side {
+  height: 451px; }
+
+/* line 32, ../sass/main.sass */
+.col {
+  float: left;
+  overflow: hidden; }
+
+/* line 36, ../sass/main.sass */
+.side {
+  width: 260px;
+  margin-right: 1px; }
+
+/* line 40, ../sass/main.sass */
+.single-row {
+  overflow: hidden;
+  padding-bottom: 133px; }
+
+/* line 44, ../sass/main.sass */
+.single-row .side {
+  height: 451px; }
+
+/* line 47, ../sass/main.sass */
+.main {
+  width: 600px; }
+
+/* line 50, ../sass/main.sass */
+.main-half {
+  width: 300px; }
+
+/* line 53, ../sass/main.sass */
+.main-third {
+  width: 200px; }
+
+/* specific id selectors */
+/* line 57, ../sass/main.sass */
+html, body {
+  height: 100%;
+  min-width: 962px;
+  text-align: center;
+  background: #C4BFA2; }
+
+/* line 63, ../sass/main.sass */
+#wrap {
+  min-height: 100%;
+  margin: 0 auto;
+  width: 962px;
+  background: #c4bfa2 url(../img/canvas-bg.png) repeat-y center; }
+
+/* line 69, ../sass/main.sass */
+#header {
+  height: 91px;
+  background: url("../img/header-bg.png") no-repeat;
+  overflow: visible; }
+
+/* line 74, ../sass/main.sass */
+#header a.logo {
+  display: block;
+  /* this is for ie 6. stops the bug from the extra whitespace from the inline link used for the logo. unable to use overflow: hidden since that hides #tagline since it's positioned outside of the bounds of the header */ }
+
+/* line 78, ../sass/main.sass */
+#main-nav {
+  position: absolute;
+  top: 0;
+  left: 261px;
+  height: 60px;
+  width: 699px; }
+
+/* line 85, ../sass/main.sass */
+#main-nav ul {
+  position: absolute;
+  bottom: 0;
+  right: 99px; }
+
+/* line 90, ../sass/main.sass */
+#main-nav li {
+  float: left;
+  margin-left: 10px; }
+
+/* line 94, ../sass/main.sass */
+#main-nav a {
+  display: block;
+  padding: 6px;
+  margin: 1px;
+  margin-bottom: 0; }
+
+/* line 100, ../sass/main.sass */
+#main-nav a:hover, #main-nav li.current-menu-item a {
+  border: 1px solid #fff;
+  border-bottom: 0;
+  margin: 0;
+  background: #f8cb2e; }
+
+/* line 106, ../sass/main.sass */
+#breadcrumbs {
+  position: absolute;
+  bottom: 1px;
+  left: 261px;
+  width: 600px;
+  height: 29px; }
+
+/* line 113, ../sass/main.sass */
+#breadcrumbs p {
+  margin: 0;
+  padding: 5px 10px; }
+
+/* line 117, ../sass/main.sass */
+#tagline {
+  position: absolute;
+  top: 91px;
+  left: 0;
+  width: 260px;
+  height: 20px;
+  text-align: center;
+  padding-top: 3px; }
+
+/* mailchimp signup form */
+/* line 127, ../sass/main.sass */
+#mc_embed_signup {
+  border-bottom: 1px solid white; }
+
+/* line 130, ../sass/main.sass */
+#mc_embed_signup h2 {
+  line-height: 1.5; }
+
+/* line 133, ../sass/main.sass */
+#mc_embed_signup p {
+  font-size: 16px;
+  color: black; }
+
+/* line 137, ../sass/main.sass */
+#mc_embed_signup input {
+  margin: 0;
+  border: 0;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  color: black; }
+
+/* line 145, ../sass/main.sass */
+#mc_embed_signup .email {
+  margin: 0;
+  border: 0;
+  padding: 10px 20px;
+  width: 220px;
+  font-size: 18px;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  color: black; }
+
+/* line 154, ../sass/main.sass */
+#mc_embed_signup #subscribe-btn-div {
+  float: left;
+  width: 130px; }
+
+/* line 158, ../sass/main.sass */
+#mc_embed_signup .btn {
+  border-right: 1px solid white; }
+
+/* line 161, ../sass/main.sass */
+#mc_embed_signup #pp-link {
+  float: left;
+  width: 130px;
+  text-align: center;
+  padding-top: 10px; }
+
+/* line 167, ../sass/main.sass */
+#mc_embed_signup .defaultTextActive {
+  color: #a1a1a1;
+  font-style: italic; }
+
+/* line 171, ../sass/main.sass */
+#footer {
+  margin-top: -133px;
+  /* negative value of footer height */
+  background: url("../img/footer-bg.png");
+  height: 133px;
+  clear: both;
+  overflow: visible; }
+
+/* line 179, ../sass/main.sass */
+#footer-nav {
+  position: absolute;
+  top: 80px;
+  left: 261px; }
+
+/* line 184, ../sass/main.sass */
+#footer-nav ul {
+  padding-left: 10px; }
+
+/* line 187, ../sass/main.sass */
+#footer-nav li {
+  float: left;
+  padding-left: 10px; }
+
+/* line 191, ../sass/main.sass */
+#menu-footer a {
+  padding: 5px; }
+
+/* line 194, ../sass/main.sass */
+#copyright {
+  position: absolute;
+  padding: 9px;
+  bottom: 0px;
+  right: 0px; }
+
+/* line 200, ../sass/main.sass */
+#newport-info {
+  position: absolute;
+  bottom: 100px;
+  left: 0px;
+  width: 260px;
+  height: 248px; }
+
+/* line 207, ../sass/main.sass */
+#newport-info #logo {
+  margin: 0 auto;
+  width: 120px;
+  height: 85px;
+  overflow: hidden;
+  background: url(../img/newport-realty-victoria-bc-logo.png) no-repeat;
+  background-position: bottom; }
+
+/* line 215, ../sass/main.sass */
+#newport-info #logo:hover {
+  background-position: bottom; }
+
+/* line 218, ../sass/main.sass */
+#newport-info #logo a {
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-indent: -9999px;
+  width: 100%;
+  height: 100%; }
+
+/* line 228, ../sass/main.sass */
+#newport-info p {
+  text-align: center;
+  font-size: 14px; }
+
+/* block level styles to go inside the grid columns and rows */
+/* line 233, ../sass/main.sass */
+#listing-realtor {
+  position: absolute;
+  top: 65px;
+  width: 260px;
+  text-align: center; }
+
+/* line 239, ../sass/main.sass */
+#listing-realtor .profile-frame {
+  position: absolute;
+  top: -6px;
+  left: 60px; }
+
+/* line 244, ../sass/main.sass */
+#listing-realtor .name-phone-email {
+  padding: 5px 6px 8px; }
+
+/* line 247, ../sass/main.sass */
+#listing-realtor .name {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: serif;
+  text-transform: uppercase; }
+
+/* line 253, ../sass/main.sass */
+#listing-realtor .name span {
+  font-size: 24px; }
+
+/* line 256, ../sass/main.sass */
+#listing-realtor .phone {
+  font-size: 15px; }
+
+/* line 259, ../sass/main.sass */
+.side-message {
+  position: relative;
+  width: 260px;
+  text-align: left;
+  font-family: "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.5; }
+
+/* line 267, ../sass/main.sass */
+.side-message p {
+  color: #874826; }
+
+/* line 270, ../sass/main.sass */
+.side-message p:first-letter {
+  font-size: 21px; }
+
+/* line 273, ../sass/main.sass */
+#buyer-message {
+  top: 50px; }
+
+/* line 276, ../sass/main.sass */
+#seller-message {
+  margin: 120px 0 0; }
+
+/* line 279, ../sass/main.sass */
+#seller-message h3 {
+  color: #874826;
+  font-size: 24px;
+  font-weight: normal; }
+
+/* line 284, ../sass/main.sass */
+#general-nav {
+  position: absolute;
+  bottom: 0;
+  width: 260px;
+  border-bottom: 1px solid #fff;
+  background: #afa988;
+  text-align: right; }
+
+/* line 292, ../sass/main.sass */
+#general-nav ul li:first-child a {
+  padding-top: 10px; }
+
+/* line 295, ../sass/main.sass */
+#general-nav ul li:last-child a {
+  padding-bottom: 10px; }
+
+/* line 298, ../sass/main.sass */
+#general-nav ul li:hover {
+  background: url(../img/gray-trans-bg.png); }
+
+/* line 301, ../sass/main.sass */
+#general-nav a {
+  display: block;
+  padding: 5px 25px; }
+
+/* these are the generic styles for the various galleries */
+/* line 306, ../sass/main.sass */
+.slide-meta-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url(../img/gray-trans-bg.png);
+  width: 600px; }
+
+/* line 313, ../sass/main.sass */
+.slide-meta-box p {
+  text-align: right;
+  padding: 6px; }
+
+/* front page listing slideshow styles */
+/* line 318, ../sass/main.sass */
+#featured-listings .featured {
+  border-bottom: 1px solid #fff; }
+
+/* line 321, ../sass/main.sass */
+#featured-listings .post .listing-img-header {
+  height: 450px; }
+
+/* line 324, ../sass/main.sass */
+.listing-title-price {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url(../img/gray-trans-bg.png);
+  width: 600px;
+  height: 80px; }
+
+/* line 332, ../sass/main.sass */
+.listing-title-price p {
+  margin: 0px;
+  padding: 0 20px; }
+
+/*  previous next pager elements for the front page slideshow */
+/* line 337, ../sass/main.sass */
+.prev, .next {
+  height: 80px;
+  width: 45px;
+  position: absolute;
+  top: 370px;
+  z-index: 1000;
+  text-align: center;
+  font-size: 60px;
+  text-indent: 9999px;
+  /* we're going to use image replacement here since the slideshow is javascript based */
+  overflow: hidden;
+  background: url(../img/prev-next.png); }
+
+/* line 350, ../sass/main.sass */
+.prev {
+  left: 5px;
+  background-position: 0 0; }
+
+/* line 354, ../sass/main.sass */
+.next {
+  right: 5px;
+  background-position: 40px 0; }
+
+/* line 358, ../sass/main.sass */
+.prev:hover {
+  background-position: 0 80px; }
+
+/* line 361, ../sass/main.sass */
+.next:hover {
+  background-position: 40px 80px; }
+
+/* this class is added to the div.listing-title-price with jQuery
+ *It makes the space for the .prev and .next divs for the slideshow nav */
+/* line 366, ../sass/main.sass */
+.add-nav-space {
+  width: 520px;
+  padding: 0 40px; }
+
+/* these styles are for the listing photo gallery */
+/* line 371, ../sass/main.sass */
+#listing-gallery {
+  height: 451px; }
+
+/* line 374, ../sass/main.sass */
+.slide {
+  display: none;
+  border-bottom: 1px solid #fff; }
+
+/* line 378, ../sass/main.sass */
+.first {
+  display: block; }
+
+/* line 381, ../sass/main.sass */
+.slide img {
+  display: block;
+  cursor: url(../img/magnify.cur), pointer; }
+
+/* line 385, ../sass/main.sass */
+#listing-gallery .pager {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  z-index: 100;
+  display: none;
+  background: url(../img/gray-trans-bg.png); }
+
+/* line 393, ../sass/main.sass */
+#listing-gallery .prev, #listing-gallery .next {
+  top: 20px; }
+
+/* line 396, ../sass/main.sass */
+.pager-imgs {
+  padding: 9px 0 0 9px;
+  width: 510px;
+  margin: 0 45px;
+  overflow: hidden; }
+
+/* line 402, ../sass/main.sass */
+.pager-imgs div {
+  display: block;
+  float: left; }
+
+/* line 406, ../sass/main.sass */
+.pager-imgs div a {
+  overflow: hidden;
+  height: 40px;
+  display: block;
+  margin: 0 9px 9px 0;
+  border: 1px solid #bbb; }
+
+/* line 413, ../sass/main.sass */
+.pager-imgs div a.activeSlide {
+  display: block;
+  border: 1px solid #CA6C38; }
+
+/* these are simple content block styles. used on the front page mostly */
+/* line 418, ../sass/main.sass */
+.block-header {
+  background: #ca6c38;
+  padding-bottom: 5px; }
+
+/* line 422, ../sass/main.sass */
+.block-header p {
+  margin: 0;
+  padding: 0 20px 5px; }
+
+/* line 426, ../sass/main.sass */
+.block-header, .block {
+  overflow: auto; }
+
+/* line 429, ../sass/main.sass */
+#recently-sold, #recent-entries {
+  padding-bottom: 20px; }
+
+/* allows the imgs to float to the left of the headeres */
+/* line 433, ../sass/main.sass */
+.block h3, .block h4 {
+  line-height: 1.3;
+  clear: none; }
+
+/* line 437, ../sass/main.sass */
+.block h3 {
+  margin-bottom: 5px; }
+
+/* line 440, ../sass/main.sass */
+.block h4 {
+  font-family: verdana, sans-serif; }
+
+/* line 443, ../sass/main.sass */
+.block img {
+  float: left;
+  border: 1px solid #ddd;
+  margin: 9px 9px 9px 19px; }
+
+/* line 448, ../sass/main.sass */
+.block p {
+  margin-bottom: 5px; }
+
+/* line 451, ../sass/main.sass */
+#listing-data {
+  margin-top: 77px;
+  color: #486f7f; }
+
+/* line 455, ../sass/main.sass */
+#listing-data a {
+  color: #486f7f; }
+
+/* line 458, ../sass/main.sass */
+#listing-data a:hover {
+  color: #000; }
+
+/* line 461, ../sass/main.sass */
+#listing-data .block-header {
+  background: #6093a9;
+  /* 	background: #0b8fc6; */ }
+
+/* line 465, ../sass/main.sass */
+#listing-data dl, #listing-data ul {
+  margin: 5px 20px 20px; }
+
+/* line 468, ../sass/main.sass */
+#listing-data dt, #listing-data li {
+  font-weight: bold;
+  font-size: 13px;
+  font-family: verdana, sans-serif; }
+
+/* line 473, ../sass/main.sass */
+#listing-data li {
+  margin-bottom: 10px; }
+
+/* line 476, ../sass/main.sass */
+#listing-data dd {
+  text-align: right;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #afa988;
+  margin-bottom: 5px; }
+
+/* line 482, ../sass/main.sass */
+.feature-list {
+  margin: 20px 20px 40px;
+  color: white; }
+
+/* line 486, ../sass/main.sass */
+.feature-list dt {
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ca6c38; }
+
+/* line 492, ../sass/main.sass */
+.feature-list li {
+  margin-bottom: 5px; }
+
+/* line 495, ../sass/main.sass */
+.listing-location {
+  margin: 20px 20px 40px;
+  color: white; }
+
+/* line 499, ../sass/main.sass */
+.listing-location h4 {
+  font-weight: bold;
+  margin: 0 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ca6c38; }
+
+/* line 505, ../sass/main.sass */
+.listing-location .map {
+  border: 1px solid white; }
+
+/* line 508, ../sass/main.sass */
+.video-embed {
+  border: 1px solid #fff;
+  border-left: 0;
+  height: 202px;
+  overflow: hidden; }
+
+/* line 514, ../sass/main.sass */
+.video-embed p {
+  margin: 0;
+  padding: 0; }
+
+/* line 518, ../sass/main.sass */
+#page-content {
+  padding-bottom: 40px; }
+
+/* line 521, ../sass/main.sass */
+#page-content ul {
+  margin: 10px 20px; }
+
+/* line 524, ../sass/main.sass */
+#page-content li {
+  margin-bottom: 10px;
+  line-height: 1.2; }
+
+/* line 528, ../sass/main.sass */
+body.category-blog .post {
+  margin: 20px 20px 30px; }
+
+/* line 531, ../sass/main.sass */
+body.category-blog .post h2 {
+  margin: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ca6c38; }
+
+/* line 536, ../sass/main.sass */
+.date, .tags {
+  margin: 10px 20px;
+  color: #fff;
+  font-size: 13px;
+  font-family: verdana, sans-serif; }
+
+/* line 542, ../sass/main.sass */
+.tags {
+  border-top: 1px solid #ca6c38; }
+
+/* line 545, ../sass/main.sass */
+.post p a {
+  text-decoration: underline; }
+
+/* line 548, ../sass/main.sass */
+.post a:link {
+  color: #fff; }
+
+/* line 551, ../sass/main.sass */
+.post a:visited {
+  color: #fff; }
+
+/* line 554, ../sass/main.sass */
+.post a:hover {
+  color: #ccc; }
+
+/* line 557, ../sass/main.sass */
+.post-title {
+  border-bottom: 1px solid #ca6c38; }
+
+/* line 560, ../sass/main.sass */
+.post .content-img {
+  border: 1px solid white; }
+
+/* line 563, ../sass/main.sass */
+.post ul {
+  list-style: circle;
+  margin: 0 20px 10px;
+  color: white;
+  width: 250px; }
+
+/* line 569, ../sass/main.sass */
+.post li {
+  margin: 0 0 5px 0;
+  line-height: 1.5; }
+
+/* line 573, ../sass/main.sass */
+.navigation {
+  margin: 5px 20px 20px; }
+
+/* line 576, ../sass/main.sass */
+.wpcf7 p {
+  position: relative;
+  margin: 0 0 70px;
+  /* room for the submit button plus 10px */
+  padding: 0; }
+
+/* line 582, ../sass/main.sass */
+.wpcf7 br {
+  display: none; }
+
+/* line 585, ../sass/main.sass */
+.wpcf7 .cf-label {
+  padding: 10px 20px 10px;
+  color: white;
+  font-size: 18px; }
+
+/* line 590, ../sass/main.sass */
+.wpcf7 input, .wpcf7 textarea {
+  margin: 0;
+  border: 0;
+  padding: 10px 20px;
+  font-size: 21px;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  color: black; }
+
+/* line 598, ../sass/main.sass */
+.wpcf7 .wpcf7-text,
+.wpcf7 textarea {
+  border-bottom: 1px solid #AFA988;
+  width: 560px; }
+
+/* line 603, ../sass/main.sass */
+.wpcf7 .wpcf7-text {
+  height: 25px; }
+
+/* line 606, ../sass/main.sass */
+.wpcf7 textarea {
+  height: 259px;
+  display: block; }
+
+/* line 610, ../sass/main.sass */
+.wpcf7-submit {
+  width: 180px;
+  height: 60px;
+  position: absolute;
+  right: 0; }
+
+/* WP Contact Form 7 Styles
+ *I copied these from the plugin style directory and then disabled the laoding of the plugin styles
+ *CF styles disabled in wp-config.php */
+/* line 619, ../sass/main.sass */
+div.wpcf7 {
+  margin: 0;
+  padding: 0; }
+
+/* line 623, ../sass/main.sass */
+div.wpcf7-response-output {
+  margin: 0;
+  padding: 10px 20px;
+  width: 379px;
+  position: absolute;
+  bottom: -60px;
+  height: 40px;
+  /*	top: 338px; */
+  left: 0;
+  color: black;
+  line-height: 1.2; }
+
+/* line 635, ../sass/main.sass */
+div.wpcf7-mail-sent-ok {
+  background: #349cd2; }
+
+/* line 638, ../sass/main.sass */
+div.wpcf7-mail-sent-ng {
+  background: #F8CB2E; }
+
+/* line 641, ../sass/main.sass */
+div.wpcf7-spam-blocked {
+  background: #F8CB2E; }
+
+/* line 644, ../sass/main.sass */
+div.wpcf7-validation-errors {
+  background: #F8CB2E; }
+
+/* line 647, ../sass/main.sass */
+span.wpcf7-form-control-wrap {
+  position: relative;
+  display: block; }
+
+/* line 651, ../sass/main.sass */
+span.wpcf7-not-valid-tip {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  font-size: 12pt;
+  width: 560px;
+  padding: 5px 20px;
+  background: transparent;
+  color: #f66;
+  bottom: 0;
+  right: 0;
+  text-align: right; }
+
+/* line 664, ../sass/main.sass */
+span.wpcf7-not-valid-tip-no-ajax {
+  color: #f00;
+  font-size: 10pt;
+  display: block; }
+
+/* line 669, ../sass/main.sass */
+span.wpcf7-list-item {
+  margin-left: 0.5em; }
+
+/* line 672, ../sass/main.sass */
+.wpcf7-display-none {
+  display: none; }
+
+/* line 675, ../sass/main.sass */
+div.wpcf7 img.ajax-loader {
+  border: none;
+  vertical-align: middle;
+  position: absolute;
+  right: 30px;
+  bottom: -30px; }
+
+/* line 682, ../sass/main.sass */
+div.wpcf7 .watermark {
+  color: #AFA988; }
+
+/* end WP Contact Form 7 Styles */
+/* line 686, ../sass/main.sass */
+.blog-post {
+  border-top: 1px solid white;
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+  width: 600px; }
+
+/* line 694, ../sass/main.sass */
+.blog .alignleft {
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  margin-top: 0;
+  margin-bottom: 10px; }
+
+/* line 700, ../sass/main.sass */
+.blog .read-more {
+  text-align: right;
+  margin: 5px 20px 10px; }
+
+/* line 704, ../sass/main.sass */
+.blog .description {
+  margin-bottom: 20px; }
+
+/* These rather presentational classes are generated by WordPress, so it's useful to have some styles for them. Edit as you see fit. More info: http://codex.wordpress.org/CSS */
+/* line 708, ../sass/main.sass */
+.aligncenter {
+  display: block;
+  margin: 0 auto; }
+
+/* line 712, ../sass/main.sass */
+.alignleft {
+  float: left;
+  margin: 5px 20px 0 0; }
+
+/* line 716, ../sass/main.sass */
+.alignright {
+  float: right;
+  margin: 5px 0 0 20px; }
+
+/* line 720, ../sass/main.sass */
+.wp-caption {
+  background: #C4BFA2;
+  margin-bottom: 12px; }
+
+/* line 724, ../sass/main.sass */
+.wp-caption p, .gallery-caption {
+  margin: 3px !important;
+  text-align: center !important; }
+
+/*Opera Fix for the  footer stick */
+/* line 729, ../sass/main.sass */
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px; }
+
+/* line 736, ../sass/main.sass */
+#page-content h2:first-child {
+  margin-top: 10px; }
+
+/* line 739, ../sass/main.sass */
+#page-content h2 {
+  margin-top: 20px; }

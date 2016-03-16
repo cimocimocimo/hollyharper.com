@@ -1,0 +1,6 @@
+
+/* this is needed to make the footer stick to the bottom of the page in IE 6 and */
+#wrap {
+	display: table;
+	height: 100%
+	}

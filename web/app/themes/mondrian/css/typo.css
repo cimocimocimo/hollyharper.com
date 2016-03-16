@@ -1,0 +1,142 @@
+/* TYPOGRAPHY */
+/* ----------------------------------------- */
+
+/* Default font settings. 
+   The font-size percentage is of 16px. (0.75 * 16px = 12px) 
+
+*** make these percentage values or ems where it would be appropriate to have the text scale
+*** for now I'm just going to go with pixel values (easier to work with)
+
+font sizes I want to use
+
+13px verdana - smallest
+15px 'Lucidia Grande' - default text
+18px 'Lucidia Grande' - larger font
+24px
+30px
+*/
+
+
+/* These are the color values used for the site 
+red: #CA6C38
+dark-red: #874826
+
+
+	color: #486f7f;
+}
+
+#listing-data a{
+		color: #486f7f;
+}
+
+#listing-data a:hover {
+	color: #000;
+}
+
+desaturated blue from the site header used for the listing data header
+#6093a9;
+
+
+*/
+
+
+body {
+	font-size: 15px;
+	color: #874826;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+	color: white;
+}
+
+h1 { font-size: 30px; }
+
+h2 { font-size: 21px; }
+
+h3 { font-size: 17px; }
+
+h4 { font-size: 15px; }
+
+h5 { font-size: 13px; }
+
+h3, h4, h5 {
+	font-weight: bold;
+}
+
+p {
+	line-height: 1.5;
+	color: #fff;
+	text-align: justify;
+}
+
+a:link { color: #874826; }
+a:visited { color: #874826; }
+a:active { color: #fff; }
+a:hover { color: #000; }
+
+
+.small {
+	font-size: 13px;
+	font-family: verdana, sans-serif;
+}
+
+.medium {
+	font-size: 18px;
+}
+
+.large {
+	font-size: 24px;
+}
+
+.largest {
+	font-size: 30px;
+}
+
+
+
+#main-nav li {
+	font-size: 18px;
+}
+#main-nav li.current-menu-item a {
+	color: #000;
+}
+
+#tagline {
+	font-size: 13px;
+	word-spacing: 7px;
+	line-height: 1.3em;
+}
+
+
+#general-nav a {
+	font-size: 18px;
+	color: #fff;
+}
+
+
+.listing-title-price p {
+	font-size: 18px;
+}
+
+
+
+.slide-meta-box p {
+	color: #fff;
+}
+
+
+#copyright {
+	color: #CA6C38;
+}
+
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.blog-post h4,
+.blog-post h5,
+.blog-post h6 {
+	clear: none;
+}
+
+
