@@ -7,6 +7,21 @@ web/app/uploads/*
 !web/app/uploads/.gitkeep
 
 # Plugin Whitelist
+!web/app/plugins/additional-image-sizes
+!web/app/plugins/breadcrumbs
+!web/app/plugins/contact-form-7
+!web/app/plugins/duplicate-post
+!web/app/plugins/ewww-image-optimizer
+!web/app/plugins/google-analyticator
+!web/app/plugins/google-sitemap-generator
+!web/app/plugins/hj_business_directory
+!web/app/plugins/redirection
+!web/app/plugins/regenerate-thumbnails
+!web/app/plugins/simple-taxonomies
+!web/app/plugins/single-post-template
+!web/app/plugins/w3-total-cache
+!web/app/plugins/wp-mail-smtp
+!web/app/plugins/wp-no-category-base
 
 # W3 Total Cache
 web/app/cache/
