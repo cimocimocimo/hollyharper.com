@@ -468,8 +468,8 @@ html, body {
 .slide {
   display: none;
   border-bottom: 1px solid #fff;
-  width: 600px !important;
-  height: 450px !important; }
+  min-width: 600px;
+  min-height: 450px; }
 
 /* line 355, ../sass/_base.sass */
 .first {
@@ -482,32 +482,31 @@ html, body {
   height: 100%;
   cursor: url(../img/magnify.cur), pointer; }
 
-/* line 364, ../sass/_base.sass */
+/* line 365, ../sass/_base.sass */
 #listing-gallery .pager {
   position: absolute;
   bottom: 1px;
   left: 0;
   z-index: 100;
   display: none;
-  background: url(../img/gray-trans-bg.png); }
-
-/* line 372, ../sass/_base.sass */
-#listing-gallery .prev, #listing-gallery .next {
+  background: rgba(128, 128, 128, 0.5);
+  padding: 0 45px; }
+/* line 374, ../sass/_base.sass */
+#listing-gallery .prev,
+#listing-gallery .next {
   top: 20px; }
 
-/* line 375, ../sass/_base.sass */
+/* line 378, ../sass/_base.sass */
 .pager-imgs {
   padding: 9px 0 0 9px;
-  width: 510px;
-  margin: 0 45px;
   overflow: hidden; }
 
-/* line 381, ../sass/_base.sass */
+/* line 382, ../sass/_base.sass */
 .pager-imgs div {
   display: block;
   float: left; }
 
-/* line 385, ../sass/_base.sass */
+/* line 386, ../sass/_base.sass */
 .pager-imgs div a {
   overflow: hidden;
   height: 40px;
@@ -515,229 +514,229 @@ html, body {
   margin: 0 9px 9px 0;
   border: 1px solid #bbb; }
 
-/* line 392, ../sass/_base.sass */
+/* line 393, ../sass/_base.sass */
 .pager-imgs div a.activeSlide {
   display: block;
   border: 1px solid #CA6C38; }
 
 /* these are simple content block styles. used on the front page mostly */
-/* line 397, ../sass/_base.sass */
+/* line 398, ../sass/_base.sass */
 .block-header {
   background: #ca6c38;
   padding-bottom: 5px; }
 
-/* line 401, ../sass/_base.sass */
+/* line 402, ../sass/_base.sass */
 .block-header p {
   margin: 0;
   padding: 0 20px 5px; }
 
-/* line 405, ../sass/_base.sass */
+/* line 406, ../sass/_base.sass */
 .block-header, .block {
   overflow: auto; }
 
-/* line 408, ../sass/_base.sass */
+/* line 409, ../sass/_base.sass */
 #recently-sold, #recent-entries {
   padding-bottom: 20px; }
 
 /* allows the imgs to float to the left of the headeres */
-/* line 412, ../sass/_base.sass */
+/* line 413, ../sass/_base.sass */
 .block h3, .block h4 {
   line-height: 1.3;
   clear: none; }
 
-/* line 416, ../sass/_base.sass */
+/* line 417, ../sass/_base.sass */
 .block h3 {
   margin-bottom: 5px; }
 
-/* line 419, ../sass/_base.sass */
+/* line 420, ../sass/_base.sass */
 .block h4 {
   font-family: verdana, sans-serif; }
 
-/* line 422, ../sass/_base.sass */
+/* line 423, ../sass/_base.sass */
 .block img {
   float: left;
   border: 1px solid #ddd;
   margin: 9px 9px 9px 19px; }
 
-/* line 427, ../sass/_base.sass */
+/* line 428, ../sass/_base.sass */
 .block p {
   margin-bottom: 5px; }
 
-/* line 430, ../sass/_base.sass */
+/* line 431, ../sass/_base.sass */
 #listing-data {
   margin-top: 77px;
   color: #486f7f; }
 
-/* line 434, ../sass/_base.sass */
+/* line 435, ../sass/_base.sass */
 #listing-data a {
   color: #486f7f; }
 
-/* line 437, ../sass/_base.sass */
+/* line 438, ../sass/_base.sass */
 #listing-data a:hover {
   color: #000; }
 
-/* line 440, ../sass/_base.sass */
+/* line 441, ../sass/_base.sass */
 #listing-data .block-header {
   background: #6093a9;
   /* 	background: #0b8fc6; */ }
 
-/* line 444, ../sass/_base.sass */
+/* line 445, ../sass/_base.sass */
 #listing-data dl, #listing-data ul {
   margin: 5px 20px 20px; }
 
-/* line 447, ../sass/_base.sass */
+/* line 448, ../sass/_base.sass */
 #listing-data dt, #listing-data li {
   font-weight: bold;
   font-size: 13px;
   font-family: verdana, sans-serif; }
 
-/* line 452, ../sass/_base.sass */
+/* line 453, ../sass/_base.sass */
 #listing-data li {
   margin-bottom: 10px; }
 
-/* line 455, ../sass/_base.sass */
+/* line 456, ../sass/_base.sass */
 #listing-data dd {
   text-align: right;
   padding-bottom: 5px;
   border-bottom: 1px solid #afa988;
   margin-bottom: 5px; }
 
-/* line 461, ../sass/_base.sass */
+/* line 462, ../sass/_base.sass */
 .feature-list {
   margin: 20px 20px 40px;
   color: white; }
 
-/* line 465, ../sass/_base.sass */
+/* line 466, ../sass/_base.sass */
 .feature-list dt {
   font-weight: bold;
   margin-bottom: 10px;
   padding-bottom: 5px;
   border-bottom: 1px solid #ca6c38; }
 
-/* line 471, ../sass/_base.sass */
+/* line 472, ../sass/_base.sass */
 .feature-list li {
   margin-bottom: 5px; }
 
-/* line 474, ../sass/_base.sass */
+/* line 475, ../sass/_base.sass */
 .listing-location {
   margin: 20px 20px 40px;
   color: white; }
 
-/* line 478, ../sass/_base.sass */
+/* line 479, ../sass/_base.sass */
 .listing-location h4 {
   font-weight: bold;
   margin: 0 0 10px;
   padding-bottom: 5px;
   border-bottom: 1px solid #ca6c38; }
 
-/* line 484, ../sass/_base.sass */
+/* line 485, ../sass/_base.sass */
 .listing-location .map {
   border: 1px solid white; }
 
-/* line 487, ../sass/_base.sass */
+/* line 488, ../sass/_base.sass */
 .video-embed {
   border: 1px solid #fff;
   border-left: 0;
   height: 202px;
   overflow: hidden; }
 
-/* line 493, ../sass/_base.sass */
+/* line 494, ../sass/_base.sass */
 .video-embed p {
   margin: 0;
   padding: 0; }
 
-/* line 497, ../sass/_base.sass */
+/* line 498, ../sass/_base.sass */
 #page-content {
   padding-bottom: 40px; }
 
-/* line 500, ../sass/_base.sass */
+/* line 501, ../sass/_base.sass */
 #page-content ul {
   margin: 10px 20px; }
 
-/* line 503, ../sass/_base.sass */
+/* line 504, ../sass/_base.sass */
 #page-content li {
   margin-bottom: 10px;
   line-height: 1.2; }
 
-/* line 507, ../sass/_base.sass */
+/* line 508, ../sass/_base.sass */
 body.category-blog .post {
   margin: 20px 20px 30px; }
 
-/* line 510, ../sass/_base.sass */
+/* line 511, ../sass/_base.sass */
 body.category-blog .post h2 {
   margin: 0;
   padding-bottom: 5px;
   border-bottom: 1px solid #ca6c38; }
 
-/* line 515, ../sass/_base.sass */
+/* line 516, ../sass/_base.sass */
 .date, .tags {
   margin: 10px 20px;
   color: #fff;
   font-size: 13px;
   font-family: verdana, sans-serif; }
 
-/* line 521, ../sass/_base.sass */
+/* line 522, ../sass/_base.sass */
 .tags {
   border-top: 1px solid #ca6c38; }
 
-/* line 524, ../sass/_base.sass */
+/* line 525, ../sass/_base.sass */
 .post p a {
   text-decoration: underline; }
 
-/* line 527, ../sass/_base.sass */
+/* line 528, ../sass/_base.sass */
 .post a:link {
   color: #fff; }
 
-/* line 530, ../sass/_base.sass */
+/* line 531, ../sass/_base.sass */
 .post a:visited {
   color: #fff; }
 
-/* line 533, ../sass/_base.sass */
+/* line 534, ../sass/_base.sass */
 .post a:hover {
   color: #ccc; }
 
-/* line 536, ../sass/_base.sass */
+/* line 537, ../sass/_base.sass */
 .post-title {
   border-bottom: 1px solid #ca6c38; }
 
-/* line 539, ../sass/_base.sass */
+/* line 540, ../sass/_base.sass */
 .post .content-img {
   border: 1px solid white; }
 
-/* line 542, ../sass/_base.sass */
+/* line 543, ../sass/_base.sass */
 .post ul {
   list-style: circle;
   margin: 0 20px 10px;
   color: white;
   width: 250px; }
 
-/* line 548, ../sass/_base.sass */
+/* line 549, ../sass/_base.sass */
 .post li {
   margin: 0 0 5px 0;
   line-height: 1.5; }
 
-/* line 552, ../sass/_base.sass */
+/* line 553, ../sass/_base.sass */
 .navigation {
   margin: 5px 20px 20px; }
 
-/* line 555, ../sass/_base.sass */
+/* line 556, ../sass/_base.sass */
 .wpcf7 p {
   position: relative;
   margin: 0 0 70px;
   /* room for the submit button plus 10px */
   padding: 0; }
 
-/* line 561, ../sass/_base.sass */
+/* line 562, ../sass/_base.sass */
 .wpcf7 br {
   display: none; }
 
-/* line 564, ../sass/_base.sass */
+/* line 565, ../sass/_base.sass */
 .wpcf7 .cf-label {
   padding: 10px 20px 10px;
   color: white;
   font-size: 18px; }
 
-/* line 569, ../sass/_base.sass */
+/* line 570, ../sass/_base.sass */
 .wpcf7 input, .wpcf7 textarea {
   margin: 0;
   border: 0;
@@ -746,22 +745,22 @@ body.category-blog .post h2 {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   color: black; }
 
-/* line 577, ../sass/_base.sass */
+/* line 578, ../sass/_base.sass */
 .wpcf7 .wpcf7-text,
 .wpcf7 textarea {
   border-bottom: 1px solid #AFA988;
   width: 560px; }
 
-/* line 582, ../sass/_base.sass */
+/* line 583, ../sass/_base.sass */
 .wpcf7 .wpcf7-text {
   height: 25px; }
 
-/* line 585, ../sass/_base.sass */
+/* line 586, ../sass/_base.sass */
 .wpcf7 textarea {
   height: 259px;
   display: block; }
 
-/* line 589, ../sass/_base.sass */
+/* line 590, ../sass/_base.sass */
 .wpcf7-submit {
   width: 180px;
   height: 60px;
@@ -771,12 +770,12 @@ body.category-blog .post h2 {
 /* WP Contact Form 7 Styles
  *I copied these from the plugin style directory and then disabled the laoding of the plugin styles
  *CF styles disabled in wp-config.php */
-/* line 598, ../sass/_base.sass */
+/* line 599, ../sass/_base.sass */
 div.wpcf7 {
   margin: 0;
   padding: 0; }
 
-/* line 602, ../sass/_base.sass */
+/* line 603, ../sass/_base.sass */
 div.wpcf7-response-output {
   margin: 0;
   padding: 10px 20px;
@@ -789,28 +788,28 @@ div.wpcf7-response-output {
   color: black;
   line-height: 1.2; }
 
-/* line 614, ../sass/_base.sass */
+/* line 615, ../sass/_base.sass */
 div.wpcf7-mail-sent-ok {
   background: #349cd2; }
 
-/* line 617, ../sass/_base.sass */
+/* line 618, ../sass/_base.sass */
 div.wpcf7-mail-sent-ng {
   background: #F8CB2E; }
 
-/* line 620, ../sass/_base.sass */
+/* line 621, ../sass/_base.sass */
 div.wpcf7-spam-blocked {
   background: #F8CB2E; }
 
-/* line 623, ../sass/_base.sass */
+/* line 624, ../sass/_base.sass */
 div.wpcf7-validation-errors {
   background: #F8CB2E; }
 
-/* line 626, ../sass/_base.sass */
+/* line 627, ../sass/_base.sass */
 span.wpcf7-form-control-wrap {
   position: relative;
   display: block; }
 
-/* line 630, ../sass/_base.sass */
+/* line 631, ../sass/_base.sass */
 span.wpcf7-not-valid-tip {
   display: block;
   position: absolute;
@@ -824,21 +823,21 @@ span.wpcf7-not-valid-tip {
   right: 0;
   text-align: right; }
 
-/* line 643, ../sass/_base.sass */
+/* line 644, ../sass/_base.sass */
 span.wpcf7-not-valid-tip-no-ajax {
   color: #f00;
   font-size: 10pt;
   display: block; }
 
-/* line 648, ../sass/_base.sass */
+/* line 649, ../sass/_base.sass */
 span.wpcf7-list-item {
   margin-left: 0.5em; }
 
-/* line 651, ../sass/_base.sass */
+/* line 652, ../sass/_base.sass */
 .wpcf7-display-none {
   display: none; }
 
-/* line 654, ../sass/_base.sass */
+/* line 655, ../sass/_base.sass */
 div.wpcf7 img.ajax-loader {
   border: none;
   vertical-align: middle;
@@ -846,12 +845,12 @@ div.wpcf7 img.ajax-loader {
   right: 30px;
   bottom: -30px; }
 
-/* line 661, ../sass/_base.sass */
+/* line 662, ../sass/_base.sass */
 div.wpcf7 .watermark {
   color: #AFA988; }
 
 /* end WP Contact Form 7 Styles */
-/* line 665, ../sass/_base.sass */
+/* line 666, ../sass/_base.sass */
 .blog-post {
   border-top: 1px solid white;
   clear: both;
@@ -860,50 +859,50 @@ div.wpcf7 .watermark {
   position: relative;
   width: 600px; }
 
-/* line 673, ../sass/_base.sass */
+/* line 674, ../sass/_base.sass */
 .blog .alignleft {
   border-right: 1px solid white;
   border-bottom: 1px solid white;
   margin-top: 0;
   margin-bottom: 10px; }
 
-/* line 679, ../sass/_base.sass */
+/* line 680, ../sass/_base.sass */
 .blog .read-more {
   text-align: right;
   margin: 5px 20px 10px; }
 
-/* line 683, ../sass/_base.sass */
+/* line 684, ../sass/_base.sass */
 .blog .description {
   margin-bottom: 20px; }
 
 /* These rather presentational classes are generated by WordPress, so it's useful to have some styles for them. Edit as you see fit. More info: http://codex.wordpress.org/CSS */
-/* line 687, ../sass/_base.sass */
+/* line 688, ../sass/_base.sass */
 .aligncenter {
   display: block;
   margin: 0 auto; }
 
-/* line 691, ../sass/_base.sass */
+/* line 692, ../sass/_base.sass */
 .alignleft {
   float: left;
   margin: 5px 20px 0 0; }
 
-/* line 695, ../sass/_base.sass */
+/* line 696, ../sass/_base.sass */
 .alignright {
   float: right;
   margin: 5px 0 0 20px; }
 
-/* line 699, ../sass/_base.sass */
+/* line 700, ../sass/_base.sass */
 .wp-caption {
   background: #C4BFA2;
   margin-bottom: 12px; }
 
-/* line 703, ../sass/_base.sass */
+/* line 704, ../sass/_base.sass */
 .wp-caption p, .gallery-caption {
   margin: 3px !important;
   text-align: center !important; }
 
 /*Opera Fix for the  footer stick */
-/* line 708, ../sass/_base.sass */
+/* line 709, ../sass/_base.sass */
 body:before {
   content: "";
   height: 100%;
@@ -911,11 +910,11 @@ body:before {
   width: 0;
   margin-top: -32767px; }
 
-/* line 715, ../sass/_base.sass */
+/* line 716, ../sass/_base.sass */
 #page-content h2:first-child {
   margin-top: 10px; }
 
-/* line 718, ../sass/_base.sass */
+/* line 719, ../sass/_base.sass */
 #page-content h2 {
   margin-top: 20px; }
 
@@ -953,122 +952,122 @@ body:before {
  *desaturated blue from the site header used for the listing data header
  *#6093a9; */
 /* line 37, ../sass/typo.sass */
-/* line 757, ../sass/_base.sass */
+/* line 758, ../sass/_base.sass */
 body {
   font-size: 15px;
   color: #874826;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif; }
 
 /* line 42, ../sass/typo.sass */
-/* line 764, ../sass/_base.sass */
+/* line 765, ../sass/_base.sass */
 h1, h2, h3, h4, h5 {
   color: white; }
 
 /* line 45, ../sass/typo.sass */
-/* line 769, ../sass/_base.sass */
+/* line 770, ../sass/_base.sass */
 h1 {
   font-size: 30px; }
 
 /* line 48, ../sass/typo.sass */
-/* line 774, ../sass/_base.sass */
+/* line 775, ../sass/_base.sass */
 h2 {
   font-size: 21px; }
 
 /* line 51, ../sass/typo.sass */
-/* line 779, ../sass/_base.sass */
+/* line 780, ../sass/_base.sass */
 h3 {
   font-size: 17px; }
 
 /* line 54, ../sass/typo.sass */
-/* line 784, ../sass/_base.sass */
+/* line 785, ../sass/_base.sass */
 h4 {
   font-size: 15px; }
 
 /* line 57, ../sass/typo.sass */
-/* line 789, ../sass/_base.sass */
+/* line 790, ../sass/_base.sass */
 h5 {
   font-size: 13px; }
 
 /* line 60, ../sass/typo.sass */
-/* line 794, ../sass/_base.sass */
+/* line 795, ../sass/_base.sass */
 h3, h4, h5 {
   font-weight: bold; }
 
 /* line 63, ../sass/typo.sass */
-/* line 799, ../sass/_base.sass */
+/* line 800, ../sass/_base.sass */
 p {
   line-height: 1.5;
   color: white;
   text-align: justify; }
 
 /* line 69, ../sass/typo.sass */
-/* line 807, ../sass/_base.sass */
+/* line 808, ../sass/_base.sass */
 a:link, a:visited {
   color: #874826; }
-/* line 809, ../sass/_base.sass */
+/* line 810, ../sass/_base.sass */
 a:active {
   color: white; }
-/* line 811, ../sass/_base.sass */
+/* line 812, ../sass/_base.sass */
 a:hover {
   color: black; }
 
 /* line 71, ../sass/typo.sass */
 /* line 73, ../sass/typo.sass */
 /* line 76, ../sass/typo.sass */
-/* line 820, ../sass/_base.sass */
+/* line 821, ../sass/_base.sass */
 .small {
   font-size: 13px;
   font-family: verdana, sans-serif; }
 
 /* line 80, ../sass/typo.sass */
-/* line 826, ../sass/_base.sass */
+/* line 827, ../sass/_base.sass */
 .medium {
   font-size: 18px; }
 
 /* line 83, ../sass/typo.sass */
-/* line 831, ../sass/_base.sass */
+/* line 832, ../sass/_base.sass */
 .large {
   font-size: 24px; }
 
 /* line 86, ../sass/typo.sass */
-/* line 836, ../sass/_base.sass */
+/* line 837, ../sass/_base.sass */
 .largest {
   font-size: 30px; }
 
 /* line 89, ../sass/typo.sass */
-/* line 841, ../sass/_base.sass */
+/* line 842, ../sass/_base.sass */
 #main-nav li {
   font-size: 18px; }
-  /* line 843, ../sass/_base.sass */
+  /* line 844, ../sass/_base.sass */
   #main-nav li.current-menu-item a {
     color: black; }
 
 /* line 91, ../sass/typo.sass */
 /* line 94, ../sass/typo.sass */
-/* line 850, ../sass/_base.sass */
+/* line 851, ../sass/_base.sass */
 #tagline {
   font-size: 13px;
   word-spacing: 7px;
   line-height: 1.3em; }
 
 /* line 99, ../sass/typo.sass */
-/* line 857, ../sass/_base.sass */
+/* line 858, ../sass/_base.sass */
 #general-nav a {
   font-size: 18px;
   color: white; }
 
 /* line 103, ../sass/typo.sass */
-/* line 863, ../sass/_base.sass */
+/* line 864, ../sass/_base.sass */
 .listing-title-price p {
   font-size: 18px; }
 
 /* line 106, ../sass/typo.sass */
-/* line 868, ../sass/_base.sass */
+/* line 869, ../sass/_base.sass */
 .slide-meta-box p {
   color: white; }
 
 /* line 109, ../sass/typo.sass */
-/* line 873, ../sass/_base.sass */
+/* line 874, ../sass/_base.sass */
 #copyright {
   color: #ca6c38; }
 
@@ -1127,6 +1126,23 @@ a:hover {
     font-size: 12px; }
 
 /* for the wide single post page */
-/* line 56, ../sass/screen.sass */
+/* line 55, ../sass/screen.sass */
 .single-post-listing-wide .main {
-  width: 699px; }
+  width: 699px;
+  background-color: #BFB59D; }
+/* line 59, ../sass/screen.sass */
+.single-post-listing-wide #header {
+  background-image: url(../img/header-bg-wide.png); }
+/* line 62, ../sass/screen.sass */
+.single-post-listing-wide #listing-gallery {
+  height: 525px; }
+/* line 65, ../sass/screen.sass */
+.single-post-listing-wide .slide {
+  width: 699px;
+  height: 524px; }
+/* line 69, ../sass/screen.sass */
+.single-post-listing-wide #footer {
+  background-image: url(../img/footer-bg-wide.png); }
+/* line 72, ../sass/screen.sass */
+.single-post-listing-wide #newport-info {
+  right: 0px; }

@@ -349,8 +349,8 @@ html, body
 .slide
   display: none
   border-bottom: 1px solid #fff
-  width: 600px !important
-  height: 450px !important
+  min-width: 600px
+  min-height: 450px
   
 .first
   display: block
@@ -361,21 +361,22 @@ html, body
   height: 100%
   cursor: url(../img/magnify.cur), pointer
 
-#listing-gallery .pager
-  position: absolute
-  bottom: 1px
-  left: 0
-  z-index: 100
-  display: none
-  background: url(../img/gray-trans-bg.png)
+#listing-gallery
+  .pager
+    position: absolute
+    bottom: 1px
+    left: 0
+    z-index: 100
+    display: none
+    background: rgba(#808080, 0.5)
+    padding: 0 45px
 
-#listing-gallery .prev, #listing-gallery .next
-  top: 20px
+  .prev,
+  .next
+    top: 20px
 
 .pager-imgs
   padding: 9px 0 0 9px
-  width: 510px
-  margin: 0 45px
   overflow: hidden
 
 .pager-imgs div
