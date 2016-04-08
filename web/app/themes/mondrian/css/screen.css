@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* line 5, ../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -1071,36 +1072,280 @@ a:hover {
 #copyright {
   color: #ca6c38; }
 
-/* line 3, ../sass/screen.sass */
+/* Slider */
+/* line 3, ../sass/_slick.sass */
+.slick-slider {
+  position: relative;
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent; }
+
+/* line 18, ../sass/_slick.sass */
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0; }
+  /* line 25, ../sass/_slick.sass */
+  .slick-list:focus {
+    outline: none; }
+  /* line 28, ../sass/_slick.sass */
+  .slick-list.dragging {
+    cursor: pointer;
+    cursor: hand; }
+
+/* line 32, ../sass/_slick.sass */
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+/* line 40, ../sass/_slick.sass */
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block; }
+  /* line 46, ../sass/_slick.sass */
+  .slick-track:before, .slick-track:after {
+    content: "";
+    display: table; }
+  /* line 51, ../sass/_slick.sass */
+  .slick-track:after {
+    clear: both; }
+  /* line 54, ../sass/_slick.sass */
+  .slick-loading .slick-track {
+    visibility: hidden; }
+
+/* line 57, ../sass/_slick.sass */
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none; }
+  /* line 62, ../sass/_slick.sass */
+  [dir="rtl"] .slick-slide {
+    float: right; }
+  /* line 65, ../sass/_slick.sass */
+  .slick-slide img {
+    display: block; }
+  /* line 68, ../sass/_slick.sass */
+  .slick-slide.slick-loading img {
+    display: none; }
+  /* line 73, ../sass/_slick.sass */
+  .slick-slide.dragging img {
+    pointer-events: none; }
+  /* line 76, ../sass/_slick.sass */
+  .slick-initialized .slick-slide {
+    display: block; }
+  /* line 79, ../sass/_slick.sass */
+  .slick-loading .slick-slide {
+    visibility: hidden; }
+  /* line 82, ../sass/_slick.sass */
+  .slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent; }
+
+/* line 87, ../sass/_slick.sass */
+.slick-arrow.slick-hidden {
+  display: none; }
+
+/* Slider */
+/* line 34, ../sass/_slick-theme.sass */
+.slick-loading .slick-list {
+  background: #fff url('/img/ajax-loader.gif?1460008241') center center no-repeat; }
+
+/* Icons */
+@font-face {
+  font-family: "slick";
+  src: url('/fonts/slick.eot?1460009839');
+  src: url('/fonts/slick.eot?&1460009839#iefix') format("embedded-opentype"), url('/fonts/slick.woff?1460009839') format("woff"), url('/fonts/slick.ttf?1460009839') format("truetype"), url('/fonts/slick.svg?1460009839#slick') format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/* Arrows */
+/* line 48, ../sass/_slick-theme.sass */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  margin-top: -10px\9;
+  /*lte IE 8 */
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none; }
+  /* line 70, ../sass/_slick-theme.sass */
+  .slick-prev:hover, .slick-prev:focus,
+  .slick-next:hover,
+  .slick-next:focus {
+    outline: none;
+    background: transparent;
+    color: transparent; }
+    /* line 75, ../sass/_slick-theme.sass */
+    .slick-prev:hover:before, .slick-prev:focus:before,
+    .slick-next:hover:before,
+    .slick-next:focus:before {
+      opacity: 1; }
+  /* line 78, ../sass/_slick-theme.sass */
+  .slick-prev.slick-disabled:before,
+  .slick-next.slick-disabled:before {
+    opacity: 0.25; }
+
+/* line 81, ../sass/_slick-theme.sass */
+.slick-prev:before, .slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* line 90, ../sass/_slick-theme.sass */
+.slick-prev {
+  left: -25px; }
+  /* line 93, ../sass/_slick-theme.sass */
+  [dir="rtl"] .slick-prev {
+    left: auto;
+    right: -25px; }
+  /* line 97, ../sass/_slick-theme.sass */
+  .slick-prev:before {
+    content: "←"; }
+    /* line 100, ../sass/_slick-theme.sass */
+    [dir="rtl"] .slick-prev:before {
+      content: "→"; }
+
+/* line 103, ../sass/_slick-theme.sass */
+.slick-next {
+  right: -25px; }
+  /* line 106, ../sass/_slick-theme.sass */
+  [dir="rtl"] .slick-next {
+    left: -25px;
+    right: auto; }
+  /* line 110, ../sass/_slick-theme.sass */
+  .slick-next:before {
+    content: "→"; }
+    /* line 113, ../sass/_slick-theme.sass */
+    [dir="rtl"] .slick-next:before {
+      content: "←"; }
+
+/* Dots */
+/* line 118, ../sass/_slick-theme.sass */
+.slick-slider {
+  margin-bottom: 30px; }
+
+/* line 121, ../sass/_slick-theme.sass */
+.slick-dots {
+  position: absolute;
+  bottom: -45px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  width: 100%; }
+  /* line 130, ../sass/_slick-theme.sass */
+  .slick-dots li {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer; }
+    /* line 139, ../sass/_slick-theme.sass */
+    .slick-dots li button {
+      border: 0;
+      background: transparent;
+      display: block;
+      height: 20px;
+      width: 20px;
+      outline: none;
+      line-height: 0px;
+      font-size: 0px;
+      color: transparent;
+      padding: 5px;
+      cursor: pointer; }
+      /* line 152, ../sass/_slick-theme.sass */
+      .slick-dots li button:hover, .slick-dots li button:focus {
+        outline: none; }
+        /* line 155, ../sass/_slick-theme.sass */
+        .slick-dots li button:hover:before, .slick-dots li button:focus:before {
+          opacity: 1; }
+      /* line 158, ../sass/_slick-theme.sass */
+      .slick-dots li button:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "•";
+        width: 20px;
+        height: 20px;
+        font-family: "slick";
+        font-size: 6px;
+        line-height: 20px;
+        text-align: center;
+        color: black;
+        opacity: 0.25;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale; }
+    /* line 174, ../sass/_slick-theme.sass */
+    .slick-dots li.slick-active button:before {
+      color: black;
+      opacity: 0.75; }
+
+/* line 5, ../sass/screen.sass */
 #directory-index {
   width: 580px;
   margin: 5px 10px;
   overflow: hidden;
   *zoom: 1; }
-  /* line 8, ../sass/screen.sass */
+  /* line 10, ../sass/screen.sass */
   #directory-index .block {
     display: inline;
     float: left;
     margin: 5px 10px;
     width: 270px;
     overflow: hidden; }
-    /* line 14, ../sass/screen.sass */
+    /* line 16, ../sass/screen.sass */
     #directory-index .block h3, #directory-index .block li {
       margin: 0 0 10px; }
 
-/* line 17, ../sass/screen.sass */
+/* line 19, ../sass/screen.sass */
 #newport-info {
   position: absolute;
   bottom: 31px;
   right: 99px;
   width: 340px;
   height: 101px; }
-  /* line 24, ../sass/screen.sass */
+  /* line 26, ../sass/screen.sass */
   #newport-info img {
     position: absolute;
     bottom: 10px;
     right: 20px; }
-  /* line 29, ../sass/screen.sass */
+  /* line 31, ../sass/screen.sass */
   #newport-info p {
     margin: 0;
     color: #969488;
@@ -1112,37 +1357,37 @@ a:hover {
     font-size: 12px;
     line-height: 20px; }
 
-/* line 40, ../sass/screen.sass */
+/* line 42, ../sass/screen.sass */
 #copyright {
   position: absolute;
   bottom: 0px;
   right: 0px;
   height: 30px;
   padding-right: 9px; }
-  /* line 47, ../sass/screen.sass */
+  /* line 49, ../sass/screen.sass */
   #copyright p {
     margin: 0;
     line-height: 30px;
     font-size: 12px; }
 
 /* for the wide single post page */
-/* line 55, ../sass/screen.sass */
+/* line 57, ../sass/screen.sass */
 .single-post-listing-wide .main {
   width: 699px;
   background-color: #BFB59D; }
-/* line 59, ../sass/screen.sass */
+/* line 61, ../sass/screen.sass */
 .single-post-listing-wide #header {
   background-image: url(../img/header-bg-wide.png); }
-/* line 62, ../sass/screen.sass */
+/* line 64, ../sass/screen.sass */
 .single-post-listing-wide #listing-gallery {
   height: 525px; }
-/* line 65, ../sass/screen.sass */
+/* line 67, ../sass/screen.sass */
 .single-post-listing-wide .slide {
   width: 699px;
   height: 524px; }
-/* line 69, ../sass/screen.sass */
+/* line 71, ../sass/screen.sass */
 .single-post-listing-wide #footer {
   background-image: url(../img/footer-bg-wide.png); }
-/* line 72, ../sass/screen.sass */
+/* line 74, ../sass/screen.sass */
 .single-post-listing-wide #newport-info {
   right: 0px; }
