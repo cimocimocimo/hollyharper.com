@@ -16,8 +16,7 @@ function hj_breadcrumb() {
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <title><?php wp_title(' &bull; ',true,'right'); bloginfo('name'); ?></title>
-        <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/css/screen.css" />
-        <!--[if IE]><link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/ie.css" type="text/css" media="screen" /><![endif]-->
+        <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/css/main.css" />
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
