@@ -67,7 +67,6 @@ while ( have_posts() ){
 	    // we need the empty array since array_unshift() thows an error when the passed array does not exist		
 	    if ( !isset($attached_imgs) ) { $attached_imgs = array(); }
 	    
-	    
 	    // add image data for the large slideshow image and the thumb used for the pager
 	    $slide_temp = wp_get_attachment_image_src( $attach->ID, $slide_img_size );
 	    $slide_img = new stdClass();
@@ -76,7 +75,6 @@ while ( have_posts() ){
 	    $slide_img->height = $slide_temp[2];		
 	    $attach->slide_img = $slide_img;
 	    
-	    
 	    $pager_temp = wp_get_attachment_image_src( $attach->ID, $pager_img_size );
 	    $pager_img = new stdClass();
 	    $pager_img->url = $pager_temp[0];
@@ -84,20 +82,8 @@ while ( have_posts() ){
 	    $pager_img->height = $pager_temp[2];
 	    $attach->pager_img = $pager_img;
 	    
-	    
             // push the images onto the front of the array to perserve their ordering.
 	    array_unshift($attached_imgs, $attach);
-            /*
-
-               // if the current attachment id matches this post's thumbnail id then we unshift that object onto the front of the array
-               // else just push it onto the end
-
-	       if ( $attach->ID == $thumb_id ) {
-	       array_unshift($attached_imgs, $attach);
-	       } else {
-	       $attached_imgs[] = $attach;
-	       }
-             */
         }
     }
 
