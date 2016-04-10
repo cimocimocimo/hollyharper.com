@@ -9,7 +9,15 @@ function hj_breadcrumb() {
         yoast_breadcrumb('<p class="small">','</p>');
     }
 }
-  
+
+// page data to pass into javascript
+$page_data = (object)[
+    'isSingle' => is_single(),
+    'isHome' => is_home(),
+    'isArchive' => is_archive(),
+    'bodyClasses' => get_body_class(),
+];
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -17,6 +25,9 @@ function hj_breadcrumb() {
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <title><?php wp_title(' &bull; ',true,'right'); bloginfo('name'); ?></title>
         <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/css/main.css" />
+        <script>
+            window.pageData = <?php echo json_encode($page_data); ?>;
+        </script>
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
