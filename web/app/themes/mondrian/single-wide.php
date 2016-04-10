@@ -92,54 +92,8 @@ while ( have_posts() ){
   <div class="side col">
     <?php get_sidebar('listing'); ?>
   </div>
-  <div id="listing-gallery" class="main col">
-    <div class="slideshow">				
-      <?php
-      
-      // here we output the images for the gallery. For users with javascript disabled we hide all sides after the first.
-      
-      $first = true;
-      foreach ($attached_imgs as $img_data) {
-	  $slide_img = $img_data->slide_img;
-      ?>
-	<div class="slide<?php echo $first ? ' first' : ''; ?>">
-	  <img src="<?php echo $slide_img->url; ?>" width="<?php echo $slide_img->width; ?>" height="<?php echo $slide_img->height; ?>" />
-	  <?php if ($img_data->post_excerpt) : ?>
-	    <div class="slide-meta-box">
-	      <p><?php echo $img_data->post_excerpt; ?></p>
-	    </div>
-	  <?php endif; ?>
-	</div>
         <?php
         
-	$first = false;
-	} // end foreach
-	
-	?>
-	
-    </div><!-- .slideshow -->
-    <div class="pager">
-      <div class="pager-imgs">
-	
-	<?php
-	
-	foreach ($attached_imgs as $index => $img_data) {
-	    $pager_img = $img_data->pager_img;
-	?>
-	  <div id="pager-img-<?php echo $index; ?>">
-	    <img src="<?php echo $pager_img->url; ?>" width="<?php echo $pager_img->width; ?>" height="<?php echo $pager_img->height; ?>" />
-	  </div>
-	<?php
-	
-	}
-	
-	?>
-      </div><!-- .pager-imgs -->
-      
-      
-      
-    </div><!-- .pager -->
-  </div><!-- #featured-listings -->
 </div><!-- .row -->
 <div class="row last-row">
   <div class="side col">
