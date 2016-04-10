@@ -22,6 +22,7 @@ web/app/uploads/*
 !web/app/plugins/w3-total-cache
 !web/app/plugins/wp-mail-smtp
 !web/app/plugins/wp-no-category-base
+!web/app/plugins/advanced-custom-fields-pro
 
 # W3 Total Cache
 web/app/cache/
