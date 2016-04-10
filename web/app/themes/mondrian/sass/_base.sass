@@ -1,11 +1,5 @@
-$blueprint-grid-columns : 24
-$blueprint-grid-width   : 40px
-$blueprint-grid-margin  : 0px
-$font-color             : #333
-
 @import compass/reset
 @import compass/utilities
-// @import blueprint
 
 textarea:focus, input:focus
   outline: none
@@ -345,23 +339,7 @@ html, body
 #listing-gallery
   height: 451px
   position: relative
-
-.slide
-  display: none
-  border-bottom: 1px solid #fff
-  min-width: 600px
-  min-height: 450px
   
-.first
-  display: block
-
-.slide img
-  display: block
-  width: 100%
-  height: 100%
-  cursor: url(../img/magnify.cur), pointer
-
-#listing-gallery
   .pager
     position: absolute
     bottom: 1px
@@ -374,6 +352,21 @@ html, body
   .prev,
   .next
     top: 20px
+
+.slide
+  display: none
+  border-bottom: 1px solid #fff
+  min-width: 600px
+  min-height: 450px
+  
+  &.first
+    display: block
+
+.slide img
+  display: block
+  width: 100%
+  height: 100%
+  cursor: url(../img/magnify.cur), pointer
 
 .pager-imgs
   padding: 9px 0 0 9px
