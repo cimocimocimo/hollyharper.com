@@ -92,8 +92,34 @@ while ( have_posts() ){
   <div class="side col">
     <?php get_sidebar('listing'); ?>
   </div>
+  <div class="main col">
+    <div class="listing-wide-gallery">
+      <div class="listing-wide-gallery-slides">
         <?php
         
+        foreach ($attached_imgs as $img_data) {
+	    $slide_img = $img_data->slide_img;
+	    $thumb_image_url = $img_data->pager_img->url;
+            
+        ?>
+          <div class="slick-slide"
+               data-thumb-image-url="<?php echo $thumb_image_url; ?>">
+	    <img src="<?php echo $slide_img->url; ?>" width="<?php echo $slide_img->width; ?>" height="<?php echo $slide_img->height; ?>" />
+          </div>
+        <?php 
+        
+        } // end foreach
+        
+        ?>
+      </div>
+    </div>
+    <script id="listing-wide-gallery-pager-template" type="text/x-handlebars-template">
+      <div class="listing-wide-gallery-pager"></div>
+    </script>
+    <script id="listing-wide-gallery-pager-thumb-template" type="text/x-handlebars-template">
+      <img class="listing-wide-gallery-pager-thumb" src="{{src}}" alt="{{alt}}" />
+    </script>
+  </div>
 </div><!-- .row -->
 <div class="row last-row">
   <div class="side col">

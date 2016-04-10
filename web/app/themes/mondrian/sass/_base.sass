@@ -3,7 +3,17 @@
 
 textarea:focus, input:focus
   outline: none
+  
+// extends
+%clearfix
+  &:before,
+  &:after
+    content: " "
+    display: table
 
+  &:after
+    clear: both
+  
 h1, h2, h3
   margin: 10px 20px 5px
 
