@@ -109,11 +109,11 @@ class Single_Post_Template_Plugin {
 		 * Verify this came from the our screen and with proper authorization,
 		 * because save_post can be triggered at other times
 		 */
-		if ( ! wp_verify_nonce( $_POST['pt_noncename'], plugin_basename( __FILE__ ) ) )
+		if ( array_key_exists('pt_noncename', $_POST) && ! wp_verify_nonce( $_POST['pt_noncename'], plugin_basename( __FILE__ ) ) )
 			return $post->ID;
 
 		/** Is the user allowed to edit the post or page? */
-		if ( 'page' == $_POST['post_type'] )
+		if ( array_key_exists('post_type', $_POST) && 'page' == $_POST['post_type'] )
 			if ( ! current_user_can( 'edit_page', $post->ID ) )
 				return $post->ID;
 		else
@@ -121,7 +121,12 @@ class Single_Post_Template_Plugin {
 				return $post->ID;
 
 		/** OK, we're authenticated: we need to find and save the data */
-
+                
+                // check for _wp_post_template
+                if ( ! array_key_exists( '_wp_post_template', $_POST ) ){
+                    return $post->ID;
+                }
+                
 		/** Put the data into an array to make it easier to loop though and save */
 		$mydata['_wp_post_template'] = $_POST['_wp_post_template'];
 
