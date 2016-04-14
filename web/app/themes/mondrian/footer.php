@@ -41,7 +41,7 @@
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.min.js"></script>
         <!-- TODO setup Handlebars precompilation and replace this with handlebars.runtime.min.js -->
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/handlebars.min.js"></script>
-        <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/slick.min.js"></script>
+        <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/owl.carousel.min.js"></script>
         <!-- TODO replace cycle with slick -->
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.cycle.all.js"></script>
         <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/main.js"></script>

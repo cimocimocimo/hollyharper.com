@@ -1,6 +1,5 @@
 @import base
-@import slick
-@import slick-theme
+@import owl.carousel
 
 #directory-index
   width: 580px
@@ -66,6 +65,49 @@
 
   #newport-info
     right: 0px
+    
+.listing-wide-gallery
+  $thumb-size: 40px
+  $border-width: 1px
+  
+  &__slides
+    @extend .owl-carousel
+    
+    border-bottom: 1px solid white
+    
+  &__slide
+    outline: none
+    width: 100%
+    height: 100%
 
-.listing-wide-gallery-slides
-  border-bottom: 1px solid white
+    img
+      width: 100%
+      height: 100%
+    
+  &__pager
+    @extend %clearfix
+
+    display: block
+    background: #BFB59D
+    position: relative
+    list-style: none
+    text-align: center
+    padding: 0
+
+  &__thumb
+    position: relative
+    float: left
+    display: block
+    height: $thumb-size - $border-width
+    width: $thumb-size - $border-width
+    border-bottom: $border-width solid white
+    border-right: $border-width solid white
+    margin: 0
+    padding: 0
+    overflow: hidden
+    
+    img
+      display: block
+      height: 100%
+      width: 100%
+      

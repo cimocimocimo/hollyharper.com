@@ -72,6 +72,15 @@ var mondrian = (function($, windowPageData){
     var pageData = null,
         pageTemplate = null;
 
+    // Enums
+    // based on this article: https://stijndewitt.com/2014/01/26/enums-in-javascript/
+    var KeyCodesEnum = {
+        LEFT: 37,
+        UP: 38,
+        RIGHT: 39,
+        DOWN: 40
+    };
+
     // helper functions
     function extendsObject(child, parent){
         child.prototype = Object.create(parent.prototype);
@@ -137,7 +146,7 @@ var mondrian = (function($, windowPageData){
 
         // save jQuery objects
         this.$carousel = $('.listing-wide-gallery');
-        this.$slidesContainer = this.$carousel.find('.listing-wide-gallery-slides');
+        this.$slidesContainer = this.$carousel.find('.listing-wide-gallery__slides');
 
         // add the pager element to the gallery
         this.$carousel.append(
@@ -145,22 +154,41 @@ var mondrian = (function($, windowPageData){
         );
 
         // capture the pager element
-        this.$pager = this.$carousel.find('.listing-wide-gallery-pager');
+        this.$pager = this.$carousel.find('.listing-wide-gallery__pager');
 
-        // init the slick carousel
-        this.$slidesContainer.slick({
-            autoplay: true,
-            arrows: false,
-            appendDots: this.$pager,
-            dots: true,
-            fade: true,
-            customPaging: function(slider, index){
-                var thumbSrc = $(slider.$slides[index]).attr('data-thumb-image-url');
-                return self.carouselThumbTemplate({
+        // Add slide thumbnails to the pager
+        this.$slidesContainer.find('.listing-wide-gallery__slide').each(function(index, slide){
+            var thumbSrc = $(slide).attr('data-thumb-image-url');
+
+            self.$pager.append(
+                self.carouselThumbTemplate({
                     src: thumbSrc,
-                    alt: 'thumbnail ' + index
+                    alt: 'thumbnail ' + index,
+                    index: index
                 })
-            }
+            );
+        });
+
+        // init the carousel
+        var $owlCarousel = this.$slidesContainer.owlCarousel({
+            items: 1,
+            loop: true,
+            autoplay: false,
+            video: true,
+            URLhashListener: true,
+            startPosition: 'URLHash'
+        });
+
+        // forward and back navigation for the carousel
+        $(document).on('keydown', function(event){
+            switch(event.keyCode){
+            case KeyCodesEnum.LEFT:
+                $owlCarousel.trigger('prev.owl.carousel')
+                break;
+            case KeyCodesEnum.RIGHT:
+                $owlCarousel.trigger('next.owl.carousel')
+                break;
+            };
         });
     }
     extendsObject(PageTemplateListingWide, PageTemplateSingle);

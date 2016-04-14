@@ -94,30 +94,36 @@ while ( have_posts() ){
   </div>
   <div class="main col">
     <div class="listing-wide-gallery">
-      <div class="listing-wide-gallery-slides">
+      <div class="listing-wide-gallery__slides">
         <?php
         
+        $index = 0;
         foreach ($attached_imgs as $img_data) {
 	    $slide_img = $img_data->slide_img;
 	    $thumb_image_url = $img_data->pager_img->url;
             
         ?>
-          <div class="slick-slide"
-               data-thumb-image-url="<?php echo $thumb_image_url; ?>">
+          <div class="listing-wide-gallery__slide"
+               data-thumb-image-url="<?php echo $thumb_image_url; ?>"
+               data-hash="slide-<?php echo $index; ?>">
 	    <img src="<?php echo $slide_img->url; ?>" width="<?php echo $slide_img->width; ?>" height="<?php echo $slide_img->height; ?>" />
           </div>
         <?php 
         
+        $index++;
         } // end foreach
         
         ?>
       </div>
     </div>
     <script id="listing-wide-gallery-pager-template" type="text/x-handlebars-template">
-      <div class="listing-wide-gallery-pager"></div>
+      <div class="listing-wide-gallery__pager"></div>
     </script>
     <script id="listing-wide-gallery-pager-thumb-template" type="text/x-handlebars-template">
-      <img class="listing-wide-gallery-pager-thumb" src="{{src}}" alt="{{alt}}" />
+      <a class="listing-wide-gallery__thumb"
+         href="#slide-{{index}}">
+        <img src="{{src}}" alt="{{alt}}" />
+      </a>
     </script>
   </div>
 </div><!-- .row -->
