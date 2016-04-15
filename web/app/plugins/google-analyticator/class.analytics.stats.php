@@ -19,7 +19,7 @@ class GoogleAnalyticsStats
 	 *
 	 * @param token - a one-time use token to be exchanged for a real token
 	 **/
-	function GoogleAnalyticsStats()
+	function __construct()
 	{
 
 			# Include SimplePie if it doesn't exist

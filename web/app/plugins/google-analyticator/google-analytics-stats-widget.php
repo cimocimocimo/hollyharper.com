@@ -8,7 +8,7 @@
  **/
 class GoogleStatsWidget extends WP_Widget
 {
-	function GoogleStatsWidget($shortcode = FALSE) {
+	function __construct($shortcode = FALSE) {
 		$widget_ops = array('classname' => 'widget_google_stats', 'description' => __("Displays Stat Info From Google Analytics", 'google-analyticator') );
 		$control_ops = array('width' => 400, 'height' => 400);
 		//$this->WP_Widget('googlestats', __('Google Analytics Stats', 'google-analyticator'), $widget_ops, $control_ops);

@@ -161,7 +161,7 @@ function yoast_simple_taxonomies() {
 
 class Yoast_Taxonomy_Widget extends WP_Widget {
 
-	function Yoast_Taxonomy_Widget() {
+	function __construct() {
 		$widget_ops = array( 'classname' => 'taxonomy', 'description' => 'A tag cloud for your taxonomy!' );
 		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'taxonomy-widget' );
             
