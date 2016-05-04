@@ -148,23 +148,49 @@ while ( have_posts() ){
       </dl>
 
       <?php if (isset($attached_pdfs)) { ?>
-
+        
         <div class="block-header">
 	  <h3>Floorplan &amp; PDFs</h3>
         </div>
-
+        
         <ul>
-	  <li><?php if ($attached_pdfs['floorplan']) { ?>
-	    <a href="<?php echo $attached_pdfs['floorplan']->guid; ?>">Floorplan</a>
+	  <li><?php if (isset($attached_pdfs['floorplan'])) { ?>
+	    <a href="<?php
+                     echo $attached_pdfs['floorplan']->guid;
+                     unset($attached_pdfs['floorplan']);
+                     ?>">Floorplan</a>
 	  <?php } ?></li>
-	  <li><?php if ($attached_pdfs['brochure']) { ?>
-	    <a href="<?php echo $attached_pdfs['brochure']->guid; ?>">Listing Brochure</a>
+	  <li><?php if (isset($attached_pdfs['brochure'])) { ?>
+	    <a href="<?php
+                     echo $attached_pdfs['brochure']->guid;
+                     unset($attached_pdfs['brochure']);
+                     ?>">Listing Brochure</a>
 	  <?php } ?></li>
-          <li><?php if ($attached_pdfs['davenport']) { ?>
-	    <a href="<?php echo $attached_pdfs['davenport']->guid; ?>">Davenport Map</a>
+          <li><?php if (isset($attached_pdfs['davenport'])) { ?>
+	    <a href="<?php
+                     echo $attached_pdfs['davenport']->guid;
+                     unset($attached_pdfs['davenport']);
+                     ?>">Davenport Map</a>
 	  <?php } ?></li>
+          
+          <?php 
 
+          // loop through remaining PDFs
+          
+          foreach ($attached_pdfs as $pdf){
 
+          ?>
+            <li>
+	      <a href="<?php
+                       echo $pdf->guid;
+                       ?>"><?php echo $pdf->post_title; ?></a>
+            </li>
+          <?php
+            
+            }
+            
+          ?>
+          
         </ul>	
 
       <?php } // if attached pdfs ?>
