@@ -58,13 +58,26 @@ a
 .single-row .side
   height: 451px
 
+%main-base
+  overflow: visible
+  hr
+    border-style: solid
+    border-width: 0
+    border-top: 1px solid white
+    margin: 0 -2%
+    width: 104%
+    position: relative
+
 .main
+  @extend %main-base
   width: 600px
 
 .main-half
+  @extend %main-base
   width: 300px
 
 .main-third
+  @extend %main-base
   width: 200px
 
 /* specific id selectors
