@@ -1,0 +1,6 @@
+.nav-primary {
+  ul {
+    @include menu-base;
+    @include menu-direction(vertical);
+  }
+}
