@@ -1,5 +1,5 @@
-<svg class="logo-condensed" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	   width="256px" height="160.32px" viewBox="0 0 256 160.32" enable-background="new 0 0 256 160.32" xml:space="preserve">
+<!-- width: 256px height 160.32.px - 32px margin added to svg to allow for spacing and the dropshadow efffect -->
+<svg class="logo-condensed" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="320px" height="224.32px" viewBox="-32 -32 320 224.32" xml:space="preserve">
   <g class="name" opacity="0.95">
 	  <g class="name-first-line">
 		  <path d="M0,65.219c0-0.413,0.147-0.723,0.443-0.931c0.295-0.206,0.649-0.324,1.063-0.354c0.413-0.029,0.944-0.191,1.595-0.487
