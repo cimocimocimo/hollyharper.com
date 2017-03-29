@@ -2,5 +2,16 @@
   ul {
     @include menu-base;
     @include menu-direction(vertical);
+
+    padding: 0.5rem 0;
+
+    & > li {
+      & > a {
+        color: $white;
+        padding: 0.5rem 1rem;
+        font-weight: 700;
+        text-shadow: $shadowLow;
+      }
+    }
   }
 }

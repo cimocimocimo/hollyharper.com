@@ -64,3 +64,12 @@ add_filter('template_include', function ($template) {
  * Tell WordPress how to find the compiled path of comments.blade.php
  */
 add_filter('comments_template', 'App\\template_path');
+
+/**
+ * Custom homepage loop
+ */
+add_action('pre_get_posts', function ($query) {
+    if ( $query->is_home() && $query->is_main_query() ) { // Run only on the homepage
+        $query->set('cat', '1,36');
+    }
+});

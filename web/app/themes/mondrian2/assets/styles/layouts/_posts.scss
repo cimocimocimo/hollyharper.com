@@ -1,0 +1,41 @@
+.main {
+  article {
+    .article-body {
+      @include grid-row;
+
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background: $redLight;
+        width: grid-column(3);
+      }
+    }
+
+    .article-content {
+      @include grid-column(9);
+      @include grid-column-offset(3);
+    }
+
+    &:nth-child(even) {
+      .article-body:before {
+        right: 0;
+      }
+
+      .article-content {
+        @include grid-column-offset(0);
+      }
+    }
+
+    &.category-sold {
+      .article-body:before {
+        background-color: $tanLight;
+      }
+    }
+  }
+}
