@@ -1,0 +1,122 @@
+@function pxToEm($value){
+    @if unitless($value) or unit($value) == 'px' {
+        $value: em($value);
+    }
+    @return $value;
+}
+
+@mixin fontStyle($size, $weight: null, $lineHeight: null){
+    font-size: pxToEm($size);
+    @if ($weight){
+        font-weight: $weight;
+    }
+    @if ($lineHeight){
+        // compute the unitless value for line height
+        line-height: pxToEm($lineHeight)/pxToEm($size);
+    }
+}
+
+// TODO: I think I can replace this vertical rhythm stuff with Typey.
+@if $normalize-vertical-rhythm or support-for(ie, 7) {
+    /**
+     * Set 1 unit of vertical rhythm on the top and bottom margin.
+     */
+
+    blockquote {
+        @include normalize-margin(1 $indent-amount);
+    }
+
+    /**
+     * Address margins set differently in IE 6/7.
+     */
+
+    dl,
+    menu,
+    ol,
+    ul {
+        @include normalize-margin(1 0);
+    }
+
+    @if $normalize-vertical-rhythm {
+        /**
+         * Turn off margins on nested lists.
+         */
+
+        ol,
+        ul {
+            ol,
+            ul {
+                margin: 0;
+            }
+        }
+    }
+
+    dd {
+        margin: 0 0 0 $indent-amount;
+    }
+
+    /**
+     * Address paddings set differently in IE 6/7.
+     */
+
+    menu,
+    ol,
+    ul {
+        padding: 0 0 0 $indent-amount;
+    }
+}
+
+@if $normalize-vertical-rhythm or support-for(ie, 7) {
+    /**
+     * Set 1 unit of vertical rhythm on the top and bottom margin.
+     */
+
+    p,
+    pre {
+        @include normalize-margin(1 0);
+    }
+}
+
+// TODO: Set margins on the headings with Typey
+h1, h2, h3, h4, h5, h6 {
+    font-family: $fontHeading;
+    text-shadow: $shadowLow;
+}
+
+h1, h2, h6 {
+    letter-spacing: em(2);
+}
+
+h3, h4 {
+    letter-spacing: em(2.5);
+}
+
+h4, h6 {
+    text-transform: uppercase;
+}
+
+h1 {
+    @include fontStyle(54px, 200, 72px);
+}
+
+h2 {
+    @include fontStyle(36px, 400, 48px);
+}
+
+h3 {
+    @include fontStyle(27px, 500, 40px);
+}
+
+h4 {
+    @include fontStyle(23px, 700, 32px);
+}
+
+h5 {
+    @include fontStyle(21px, 700, 32px);
+
+    letter-spacing: em(2.33);
+}
+
+h6 {
+    @include fontStyle(15px, 900, 25px);
+}

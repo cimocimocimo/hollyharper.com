@@ -1,0 +1,89 @@
+header {
+    .header__container {
+        @include container;
+    }
+
+    .header__branding {
+        @include span(1 at 1);
+
+        background: $colorYellowDark;
+        position: relative;
+        border: $border;
+        border-top: none;
+        border-left: none;
+        padding-top: gutter();
+        padding-bottom: gutter();
+    }
+
+    .header__nav {
+        @include span(3 at 2);
+
+        background: $colorBlueDark;
+        min-height: 4em;
+        border-bottom: $border;
+    }
+
+    @include susy-breakpoint($sm-md, $susy-small){
+        .header__branding {
+            @include span(2 at 1);
+            padding-top: gutter();
+            padding-bottom: gutter();
+        }
+
+        .header__nav {
+            @include span(4 at 3)
+        }
+    }
+
+    @include susy-breakpoint($md-lg, $susy-medium){
+        .header__branding {
+            @include span(3 at 1);
+            padding-top: gutter();
+            padding-bottom: gutter();
+        }
+
+        .header__nav {
+            @include span(7 at 4)
+        }
+    }
+
+    @include susy-breakpoint($lg-xlg, $susy-large){
+        .header__branding {
+            @include span(5 at 1);
+            padding-top: gutter();
+            padding-bottom: gutter();
+        }
+
+        .header__nav {
+            @include span(7 at 6)
+        }
+    }
+
+    @include susy-breakpoint($xlg-hg, $susy-x-large){
+        .header__branding {
+            @include span(4 at 1);
+            padding-top: gutter();
+            padding-bottom: gutter();
+        }
+
+        .header__nav {
+            @include span(6 at 5)
+        }
+    }
+
+    @include susy-breakpoint($huge, $susy-huge){
+        .header__container {
+            @include container;
+        }
+
+        .header__branding {
+            @include span(5 at 1);
+            padding-top: gutter();
+            padding-bottom: gutter();
+        }
+
+        .header__nav {
+            @include span(7 at 6)
+        }
+    }
+}

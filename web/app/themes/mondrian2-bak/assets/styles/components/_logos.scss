@@ -1,0 +1,75 @@
+%logoBase {
+    header & {
+        width: 100%;
+        height: auto;
+    }
+
+    .letters {
+        filter: url(#logoDropShadow);
+    }
+}
+
+%logoColorSchemePositive {
+
+}
+
+%logoColorSchemeNegative {
+    .hh,
+    .jw,
+    .ampersand {
+        fill: #ffffff;
+    }
+}
+
+.logo-full {
+    @extend %logoBase;
+
+}
+
+.logo-condensed-vertical {
+    @extend %logoBase;
+
+}
+
+.logo-condensed-horizontal {
+    @extend %logoBase;
+
+}
+
+.site-logo {
+    @extend %logoColorSchemeNegative;
+
+    display: block;
+
+    // show the vertical condensed logo
+    .logo-full {
+        display: block;
+    }
+
+    .logo-condensed-horizontal,
+    .logo-condensed-vertical {
+        display: none;
+    }
+
+    @include breakpoint(screen (max-width $small) (orientation portrait)){
+        .logo-full,
+        .logo-condensed-horizontal {
+            display: none;
+        }
+
+        .logo-condensed-vertical {
+            display: block;
+        }
+    }
+
+    @include breakpoint(screen (max-width $medium) (orientation landscape)){
+        .logo-full,
+        .logo-condensed-vertical {
+            display: none;
+        }
+
+        .logo-condensed-horizontal {
+            display: block;
+        }
+    }
+}
