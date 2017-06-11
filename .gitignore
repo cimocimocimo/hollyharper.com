@@ -38,6 +38,7 @@ web/.htaccess
 # WP-CLI
 db-sync
 sql-dump-*.sql
+*.sql
 
 # Dotenv
 .env
