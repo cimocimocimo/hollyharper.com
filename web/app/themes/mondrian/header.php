@@ -33,9 +33,8 @@ $page_data = (object)[
     <body <?php body_class(); ?>>
         <div id="wrap">
             <div id="header" class="row">
-                <a href="/" class="logo"><img src="<?php echo bloginfo('template_directory'); ?>/img/jw-hh-logo.png" height="90" width="260" alt="<?php bloginfo('name'); ?>"/></a>
+                <a href="/" class="logo"><img src="<?php echo bloginfo('template_directory'); ?>/img/hollyharper-logo.svg" height="90" width="260" alt="<?php bloginfo('name'); ?>"/></a>
                 <div id="main-nav"><?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => '', 'menu_id' => '', 'container' => '' ) ); ?></div>
                 <div id="breadcrumbs"><?php hj_breadcrumb(); ?></div>
                 <div id="tagline"><?php bloginfo('description'); ?></div>
             </div><!-- #header -->
-
