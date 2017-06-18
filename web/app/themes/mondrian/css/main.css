@@ -1190,50 +1190,77 @@ a:hover {
 .no-js .owl-carousel, .no-js .listing-wide-gallery__slides {
   display: block; }
 
-/* line 4, ../sass/main.sass */
+/* line 2, ../sass/_logos.sass */
+header .logo-full, header .logo-condensed, header .logo-abbreviated {
+  width: 100%;
+  height: auto; }
+/* line 6, ../sass/_logos.sass */
+.logo-full > *, .logo-condensed > *, .logo-abbreviated > * {
+  filter: url(#logoDropShadow); }
+
+/* line 10, ../sass/_logos.sass */
+.site-logo > * {
+  fill: #ffffff; }
+
+/* line 22, ../sass/_logos.sass */
+.site-logo {
+  display: block;
+  width: 248px;
+  padding: 12px 6px; }
+  /* line 30, ../sass/_logos.sass */
+  .site-logo .logo-condensed {
+    display: none; }
+  /* line 34, ../sass/_logos.sass */
+  .site-logo .logo-full {
+    display: block; }
+  /* line 37, ../sass/_logos.sass */
+  .site-logo .logo-abbreviated {
+    display: none; }
+
+/* line 5, ../sass/main.sass */
 .responsive-video {
   position: relative;
   height: 0; }
-  /* line 8, ../sass/main.sass */
+  /* line 9, ../sass/main.sass */
   .responsive-video iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%; }
-  /* line 15, ../sass/main.sass */
+  /* line 16, ../sass/main.sass */
   .responsive-video.aspect-16-9 {
     padding-bottom: 56.25%; }
 
-/* line 18, ../sass/main.sass */
+/* line 19, ../sass/main.sass */
 #directory-index {
   width: 580px;
   margin: 5px 10px;
   overflow: hidden; }
-  /* line 22, ../sass/main.sass */
+  /* line 23, ../sass/main.sass */
   #directory-index .block {
     display: inline;
     float: left;
     margin: 5px 10px;
     width: 270px;
     overflow: hidden; }
-    /* line 28, ../sass/main.sass */
+    /* line 29, ../sass/main.sass */
     #directory-index .block h3, #directory-index .block li {
       margin: 0 0 10px; }
 
-/* line 31, ../sass/main.sass */
+/* line 32, ../sass/main.sass */
 #newport-info {
   position: absolute;
   bottom: 31px;
   right: 99px;
   width: 340px;
   height: 101px; }
-  /* line 38, ../sass/main.sass */
+  /* line 39, ../sass/main.sass */
   #newport-info img {
     position: absolute;
     bottom: 10px;
     right: 20px; }
-  /* line 43, ../sass/main.sass */
+  /* line 44, ../sass/main.sass */
   #newport-info p {
     margin: 0;
     color: #969488;
@@ -1245,47 +1272,47 @@ a:hover {
     font-size: 12px;
     line-height: 20px; }
 
-/* line 54, ../sass/main.sass */
+/* line 55, ../sass/main.sass */
 #copyright {
   position: absolute;
   bottom: 0px;
   right: 0px;
   height: 30px;
   padding-right: 9px; }
-  /* line 61, ../sass/main.sass */
+  /* line 62, ../sass/main.sass */
   #copyright p {
     margin: 0;
     line-height: 30px;
     font-size: 12px; }
 
 /* for the wide single post page */
-/* line 69, ../sass/main.sass */
+/* line 70, ../sass/main.sass */
 .single-post-listing-wide .main {
   width: 699px;
   background-color: #BFB59D; }
-/* line 73, ../sass/main.sass */
+/* line 74, ../sass/main.sass */
 .single-post-listing-wide #header {
   background-image: url(../img/header-bg-wide.png); }
-/* line 76, ../sass/main.sass */
+/* line 77, ../sass/main.sass */
 .single-post-listing-wide #footer {
   background-image: url(../img/footer-bg-wide.png); }
-/* line 79, ../sass/main.sass */
+/* line 80, ../sass/main.sass */
 .single-post-listing-wide #newport-info {
   right: 0px; }
 
-/* line 86, ../sass/main.sass */
+/* line 87, ../sass/main.sass */
 .listing-wide-gallery__slides {
   border-bottom: 1px solid white; }
-/* line 91, ../sass/main.sass */
+/* line 92, ../sass/main.sass */
 .listing-wide-gallery__slide {
   outline: none;
   width: 100%;
   height: 100%; }
-  /* line 96, ../sass/main.sass */
+  /* line 97, ../sass/main.sass */
   .listing-wide-gallery__slide img {
     width: 100%;
     height: 100%; }
-/* line 100, ../sass/main.sass */
+/* line 101, ../sass/main.sass */
 .listing-wide-gallery__pager {
   display: block;
   background: #BFB59D;
@@ -1293,7 +1320,7 @@ a:hover {
   list-style: none;
   text-align: center;
   padding: 0; }
-/* line 110, ../sass/main.sass */
+/* line 111, ../sass/main.sass */
 .listing-wide-gallery__thumb {
   position: relative;
   float: left;
@@ -1305,7 +1332,7 @@ a:hover {
   margin: 0;
   padding: 0;
   overflow: hidden; }
-  /* line 122, ../sass/main.sass */
+  /* line 123, ../sass/main.sass */
   .listing-wide-gallery__thumb img {
     display: block;
     height: 100%;
