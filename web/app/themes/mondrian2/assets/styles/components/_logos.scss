@@ -26,7 +26,8 @@
 
 .logo-condensed {
     @extend %logoBase;
-
+    height: 100%;
+    width: 100%;
 }
 
 .logo-abbreviated {
