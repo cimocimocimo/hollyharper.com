@@ -34,7 +34,7 @@
 </div>
 
 <div class="off-canvas-content" data-off-canvas-content>
-  <div class="nav-bar">
+  <div class="nav-bar header">
     <div class="nav-bar-left">
       <a class="nav-bar-logo site-logo" href="{{ home_url('/') }}">
 
