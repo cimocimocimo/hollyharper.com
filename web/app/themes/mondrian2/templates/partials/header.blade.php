@@ -3,26 +3,27 @@
 <div class="multilevel-offcanvas off-canvas position-right" id="offCanvasRight" data-off-canvas>
 
   <ul class="vertical menu" data-accordion-menu>
-    <li><a href="#">SERVICES</a>
-      <ul class="menu vertical nested">
-        <li><a href="#">Brand</a></li>
-        <li><a href="#">Web Apps</a></li>
-        <li><a href="#">Mobile Apps</a></li>
-      </ul>
+    <li>
+      <a href="/sold">SOLD PROPERTIES</a>
+      <!-- <ul class="menu vertical nested">
+        <li><a href="#">Property 1</a></li>
+        <li><a href="#">Property 2</a></li>
+        <li><a href="#">Property 3</a></li>
+      </ul> -->
     </li>
-    <li><a href="#">PRODUCTS</a>
-      <ul class="menu vertical nested">
-        <li><a href="#">Product 1</a></li>
-        <li><a href="#">Product 2</a></li>
-        <li><a href="#">Product 3</a></li>
-      </ul>
+    <li>
+      <a href="/listings">CURRENT LISTINGS</a>
+      <!-- <ul class="menu vertical nested">
+        <li><a href="#">Property 1</a></li>
+        <li><a href="#">Property 2</a></li>
+        <li><a href="#">Property 3</a></li>
+      </ul> -->
     </li>
-    <li><a href="#">CITIES</a>
-      <ul class="menu vertical nested">
-        <li><a href="#">London</a></li>
-        <li><a href="#">New York</a></li>
-        <li><a href="#">Paris</a></li>
-      </ul>
+    <li>
+      <a href="/links">VICTORIA, BC INFO</a>
+    </li>
+    <li>
+      <a href="/blog">REAL ESTATE BLOG</a>
     </li>
   </ul>
   <ul class="menu simple social-links">
