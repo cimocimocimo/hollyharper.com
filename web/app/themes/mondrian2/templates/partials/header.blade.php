@@ -26,6 +26,28 @@
       <a href="/blog">REAL ESTATE BLOG</a>
     </li>
   </ul>
+
+  <!-- Begin MailChimp Signup Form -->
+  <div id="mc_embed_signup">
+    <div class="block-header">
+      <h4>Holly's Real Estate Newsletter</h4>
+    </div>
+    <p>
+      New Listings, Price Drops, Real Estate Tips,
+      and articles about living in Victoria, BC delivered to your email.
+    </p>
+    <form action="http://hollyandjohn.us6.list-manage.com/subscribe/post?u=099f7cafd42f8208755180329&amp;id=6c3f3940a7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="" _lpchecked="1">
+      <fieldset>
+        <input type="text" value="" name="EMAIL" class="required email defaultText defaultTextActive" title="Enter your email" id="mce-EMAIL">
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+        <div id="pp-link">
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <!--End mc_embed_signup-->
+
   <ul class="menu simple social-links">
     <li><a href="#" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
     <li><a href="#" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
