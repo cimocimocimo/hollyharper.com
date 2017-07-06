@@ -1,6 +1,7 @@
 <?php echo file_get_contents( get_template_directory() . '/assets/svgs/inline/filters.svg'); ?>
 
 <div class="multilevel-offcanvas off-canvas position-right" id="offCanvasRight" data-off-canvas>
+  <?php wp_nav_menu( array( 'theme_location' => 'sidebar-menu' ) ); ?>
 
   <ul class="vertical menu" data-accordion-menu>
     <li>
@@ -67,11 +68,19 @@
 
       </a>
     </div>
+
+    <?php wp_nav_menu(
+      array(
+        'theme_location' => 'header-menu',
+        'container' => 'div',
+        'container_class' => 'nav-bar-right'
+      )
+    ); ?>
     <div class="nav-bar-right">
       <ul class="menu">
-        <li class="hide-for-small-only"><a href="{{ home_url('/') }}">HOME</a></li>
+        <!-- <li class="hide-for-small-only"><a href="{{ home_url('/') }}">HOME</a></li>
         <li class="hide-for-small-only"><a href="{{ home_url('/about') }}">ABOUT</a></li>
-        <li class="hide-for-small-only"><a href="{{ home_url('/contact') }}">CONTACT</a></li>
+        <li class="hide-for-small-only"><a href="{{ home_url('/contact') }}">CONTACT</a></li> -->
         <li>
           <button class="offcanvas-trigger" type="button" data-open="offCanvasRight">
             <span class="offcanvas-trigger-text hide-for-small-only">Menu</span>
