@@ -1,11 +1,25 @@
 @import base
 @import owl.carousel
+@import logos
+
+.responsive-video
+  position: relative
+  height: 0
+
+  iframe
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+  &.aspect-16-9
+    padding-bottom: 56.25%
 
 #directory-index
   width: 580px
   margin: 5px 10px
   overflow: hidden
-  *zoom: 1
   .block
     display: inline
     float: left
