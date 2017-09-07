@@ -26,12 +26,15 @@
 
 .logo-condensed {
     @extend %logoBase;
-
+    height: 100%;
+    width: 70%;
+    margin: 2rem;
 }
 
 .logo-abbreviated {
     @extend %logoBase;
-
+    height: 100%;
+    width: 100%;
 }
 
 .site-logo {
@@ -50,25 +53,14 @@
         display: none;
     }
 
-    // @include breakpoint(screen (max-width $small) (orientation portrait)){
-    //     .logo-full,
-    //     .logo-condensed-horizontal {
-    //         display: none;
-    //     }
+    @include breakpoint(medium down){
+        .logo-full,
+        .logo-condensed {
+            display: none;
+        }
 
-    //     .logo-condensed-vertical {
-    //         display: block;
-    //     }
-    // }
-
-    // @include breakpoint(screen (max-width $medium) (orientation landscape)){
-    //     .logo-full,
-    //     .logo-condensed-vertical {
-    //         display: none;
-    //     }
-
-    //     .logo-condensed-horizontal {
-    //         display: block;
-    //     }
-    // }
+        .logo-abbreviated {
+            display: block;
+        }
+    }
 }
