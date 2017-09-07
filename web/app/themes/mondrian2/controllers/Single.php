@@ -30,10 +30,22 @@ class Single extends Controller
     public static function old_single_post_in_loop_data()
     {
         $loop_data = [
-            'categories' => get_the_category()
+            'is_blog' => self::check_if_blog()
         ];
 
         return $loop_data;
     }
 
+    public static function check_if_blog()
+    {
+        $categories = get_the_category();
+        
+        foreach ($categories as $category) {
+            // if it belongs to the blog category then we'll treat this post as a blog post type
+            if ($category->slug == 'blog') {
+                return true;
+            }
+        }
+        return false;
+    }
 }
