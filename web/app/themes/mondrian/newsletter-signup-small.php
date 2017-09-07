@@ -31,7 +31,7 @@ jQuery(function($){
 
 <div id="mc_embed_signup">
 <div class="block-header">
-    <h2>John &amp; Holly's Newsletter</h2>
+    <h2>Holly's Real Estate Newsletter</h2>
 </div>
 <p>New listings, Price Drops, real estate tips, and articles about living in Victoria, BC delivered to your email.</p>
 
