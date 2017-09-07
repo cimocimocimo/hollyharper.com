@@ -8,7 +8,6 @@ web/app/uploads/*
 
 # Plugin Whitelist
 !web/app/plugins/contact-form-7
-!web/app/plugins/single-post-template
 !web/app/plugins/advanced-custom-fields-pro
 
 # W3 Total Cache
