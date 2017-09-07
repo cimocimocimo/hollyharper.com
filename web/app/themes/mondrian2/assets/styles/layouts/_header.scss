@@ -1,0 +1,17 @@
+.header {
+  &__container {
+    @include grid-row;
+  }
+
+  &__branding {
+    @include grid-column(5, 0);
+
+    background: $yellowDark;
+  }
+
+  &__nav {
+    @include grid-column(7, 0);
+
+    background-color: $blueDark;
+  }
+}

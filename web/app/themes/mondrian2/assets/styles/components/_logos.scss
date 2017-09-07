@@ -1,0 +1,66 @@
+%logoBase {
+    header & {
+        width: 100%;
+        height: auto;
+    }
+
+    & > * {
+        filter: url(#logoDropShadow);
+    }
+}
+
+%logoColorSchemePositive {
+
+}
+
+%logoColorSchemeNegative {
+    & > * {
+        fill: #ffffff;
+    }
+}
+
+.logo-full {
+    @extend %logoBase;
+
+}
+
+.logo-condensed {
+    @extend %logoBase;
+    height: 100%;
+    width: 70%;
+    margin: 2rem;
+}
+
+.logo-abbreviated {
+    @extend %logoBase;
+    height: 100%;
+    width: 100%;
+}
+
+.site-logo {
+    @extend %logoColorSchemeNegative;
+
+    display: block;
+
+    // show the condensed logo by default
+    .logo-condensed {
+        display: block;
+    }
+
+    // hide the others
+    .logo-full,
+    .logo-abbreviated {
+        display: none;
+    }
+
+    @include breakpoint(medium down){
+        .logo-full,
+        .logo-condensed {
+            display: none;
+        }
+
+        .logo-abbreviated {
+            display: block;
+        }
+    }
+}
