@@ -29,8 +29,11 @@ class Single extends Controller
 
     public static function old_single_post_in_loop_data()
     {
+        $listing = new listingData();
         $loop_data = [
-            'is_blog' => self::check_if_blog()
+            'is_blog' => self::check_if_blog(),
+            'listing' => $listing,
+            'map' => new listingMap($listing->location())
         ];
 
         return $loop_data;
