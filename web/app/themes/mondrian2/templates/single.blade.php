@@ -27,11 +27,14 @@
       @foreach( Single::get_post_attachments() as $img_data)
         <div class="slide{{$first ? ' first' : '' }}">
           <img src="{{$img_data->slide_img->url}}" width="{{$img_data->slide_img->width }}" height="{{$img_data->slide_img->height }}" />
-        <?php if ($img_data->post_excerpt) : ?>
-          <div class="slide-meta-box">
-            <p>{{$img_data->post_excerpt}}</p>
-          </div>
-        <?php endif; ?>
+          {{--  I can't see how the post excerpt could have possibly been displaying before,
+                and it definitely doesn't at the moment. But I've transferred it over for 
+                the time being just in case.  --}}
+          @if ($img_data->post_excerpt)
+            <div class="slide-meta-box">
+              <p>{{$img_data->post_excerpt}}</p>
+            </div>
+          @endif
         </div>
         {!! $first = false !!}
       @endforeach
