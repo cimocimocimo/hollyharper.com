@@ -21,12 +21,10 @@
       <h1>This is a blog</h1>
     @else
       <h1>This is a listing</h1>
-      {!! var_dump(Single::get_post_attachments()) !!}
-      {!! $first = true; !!}
-      @foreach( Single::get_post_attachments() as $img_data)
+      {{--  {!! var_dump(Single::get_post_attachments()) !!}  --}}
 
-        <h2>image</h2>
-        {!! var_dump($img_data) !!}
+      {!! $first = true !!}
+      @foreach( Single::get_post_attachments() as $img_data)
         <div class="slide{{$first ? ' first' : '' }}">
           <img src="{{$img_data->slide_img->url}}" width="{{$img_data->slide_img->width }}" height="{{$img_data->slide_img->height }}" />
         <?php if ($img_data->post_excerpt) : ?>
@@ -35,7 +33,7 @@
           </div>
         <?php endif; ?>
         </div>
-              
+        {!! $first = false !!}
       @endforeach
     @endif
 

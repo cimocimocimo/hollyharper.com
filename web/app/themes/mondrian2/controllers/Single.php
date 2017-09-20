@@ -114,7 +114,7 @@ class Single extends Controller
                 }
                     */
                 }
-                return $attached_imgs;
             }
+        return $attached_imgs;
     }
 }
