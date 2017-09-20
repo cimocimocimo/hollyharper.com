@@ -28,7 +28,7 @@
         <div class="slide{{$first ? ' first' : '' }}">
           <img src="{{$img_data->slide_img->url}}" width="{{$img_data->slide_img->width }}" height="{{$img_data->slide_img->height }}" />
           {{--  I can't see how the post excerpt could have possibly been displaying before,
-                and it definitely doesn't at the moment. But I've transferred it over for 
+                and it definitely doesn't at the moment. But I've transferred it over for
                 the time being just in case.  --}}
           @if ($img_data->post_excerpt)
             <div class="slide-meta-box">
@@ -38,6 +38,13 @@
         </div>
         {!! $first = false !!}
       @endforeach
+
+      @foreach ( Single::get_post_attachments() as $index => $img_data )
+        <div id="pager-img-{{$index}}">
+          <img src="{{$img_data->pager_img->url}}" width="{{$img_data->pager_img->width}}" height="{{$img_data->pager_img->height}}" />
+        </div>
+      @endforeach
+
     @endif
 
   @endwhile
