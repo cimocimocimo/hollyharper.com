@@ -4,27 +4,42 @@
  * @subpackage Mondrian
  */
 
-get_header(); ?>
+get_header();
 
+?>
 <div class="row first-row last-row">
 	<div class="side col">
+    <?php
 
-<?php get_sidebar(); ?>
-		
+    get_sidebar();
+
+    ?>
 	</div><!-- .side .col -->
 	<div class="main col">
+    <?php
 
-<?php while ( have_posts() ) : the_post(); ?>
-	<div class="block-header"><h1><?php the_title(); ?></h1></div>
-	
-	<div id="page-content">
-			<?php the_content(); ?>
-	
-	</div>
-<?php endwhile; // end loop ?>	
-	
+    while ( have_posts() ) : the_post();
+
+    ?>
+	    <div class="block-header">
+        <h1><?php the_title(); ?></h1>
+      </div>
+	    <div id="page-content">
+			  <?php
+
+        the_content();
+
+        ?>
+	    </div>
+    <?php
+
+    endwhile; // end loop
+
+    ?>
 	</div><!-- .main .col -->
 </div><!-- .row .last-row -->
+<?php
 
-	
-<?php get_footer(); ?>
+get_footer();
+
+?>
