@@ -39,10 +39,17 @@
         {!! $first = false !!}
       @endforeach
 
-      @foreach ( Single::get_post_attachments() as $index => $img_data )
+      @foreach( Single::get_post_attachments() as $index => $img_data )
         <div id="pager-img-{{$index}}">
           <img src="{{$img_data->pager_img->url}}" width="{{$img_data->pager_img->width}}" height="{{$img_data->pager_img->height}}" />
         </div>
+      @endforeach
+
+      @foreach( Single::old_single_post_in_loop_data()['listing'] as $key => $value )
+        @if( $value && $key != 'price' && isset($value->label) )
+          {{ $value->label }}
+          {{ $value->data }}
+        @endif
       @endforeach
 
     @endif
