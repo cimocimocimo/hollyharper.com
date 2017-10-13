@@ -24,7 +24,7 @@
       {{--  {!! var_dump(Single::get_post_attachments()) !!}  --}}
 
       {!! $first = true !!}
-      @foreach( Single::get_post_attachments() as $img_data)
+      @foreach( Single::get_post_attachments()['images'] as $img_data)
         <div class="slide{{$first ? ' first' : '' }}">
           <img src="{{$img_data->slide_img->url}}" width="{{$img_data->slide_img->width }}" height="{{$img_data->slide_img->height }}" />
           {{--  I can't see how the post excerpt could have possibly been displaying before,
@@ -39,7 +39,7 @@
         {!! $first = false !!}
       @endforeach
 
-      @foreach( Single::get_post_attachments() as $index => $img_data )
+      @foreach( Single::get_post_attachments()['images'] as $index => $img_data )
         <div id="pager-img-{{$index}}">
           <img src="{{$img_data->pager_img->url}}" width="{{$img_data->pager_img->width}}" height="{{$img_data->pager_img->height}}" />
         </div>
@@ -51,6 +51,10 @@
           {{ $value->data }}
         @endif
       @endforeach
+
+      @if( isset(Single::get_post_attachments()['pdfs']) )
+        <div>hello</div>
+      @endif
 
     @endif
 

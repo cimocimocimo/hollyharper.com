@@ -65,7 +65,10 @@ class Single extends Controller
         ); 
 
         $attachments = get_posts($args);
-        return self::get_post_images($attachments);
+        return [
+            'images' => self::get_post_images($attachments), 
+            'pdfs'   => self::get_post_pdfs($attachments)
+        ];
     }
 
     public static function get_post_images($attachments)
@@ -116,5 +119,15 @@ class Single extends Controller
                 }
             }
         return $attached_imgs;
+    }
+
+    public static function get_post_pdfs($attachments)
+    {
+        foreach ($attachments as $index => $attach){
+            if ( $attach->post_mime_type == 'application/pdf' ) {
+                $attached_pdfs[$attach->post_excerpt] = $attach;
+            }
+        }
+        return $attached_pdfs;
     }
 }
