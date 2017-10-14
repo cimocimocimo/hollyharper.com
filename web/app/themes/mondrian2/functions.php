@@ -94,3 +94,43 @@ add_action( 'init', function() {
     )
   );
 });
+
+
+/**
+ * register custom posttypes
+ *  - hh_organization
+ *
+ * @author Boyd Densmore
+ * @param $param
+ * @return return type
+ */
+function create_post_type() {
+  register_post_type( 'hh_organization',
+    array(
+          'labels' => array(
+            'name' => _x('Organizations', 'post type general name'),
+          'singular_name' => _x('Organization', 'post type singular name'),
+          'add_new' => _x('Add New', 'organization'),
+          'add_new_item' => __('Add New Organization'),
+          'edit_item' => __('Edit Organization'),
+          'new_item' => __('New Organization'),
+          'view_item' => __('View Organization'),
+          'search_items' => __('Search Organizations'),
+          'not_found' =>  __('No organizations found'),
+          'not_found_in_trash' => __('No organizations found in Trash'),
+          'parent_item_colon' => ''
+      ),
+      'public' => true,
+      'publicly_queryable' => true,
+      'show_ui' => true,
+      'query_var' => true,
+      'rewrite' => array( 'slug' => 'organizations', 'with_front' => false ),
+      'capability_type' => 'post',
+      'hierarchical' => true,
+      'menu_position' => 4,
+      'taxonomies'  =>  array('post_tag'),
+      'supports' => array('title','editor','author','thumbnail','excerpt','custom-fields','revisions','page-attributes'),
+    )
+  );
+}
+add_action( 'init', 'create_post_type' );
