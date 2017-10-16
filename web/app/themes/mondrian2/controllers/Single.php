@@ -56,7 +56,7 @@ class Single extends Controller
     public static function get_post_attachments()
     {
         global $post;
-         $args = array(
+        $args = array(
             'post_type' => 'attachment',
             'numberposts' => -1,
             'post_status' => null,
@@ -65,10 +65,14 @@ class Single extends Controller
         ); 
 
         $attachments = get_posts($args);
-        return [
-            'images' => self::get_post_images($attachments), 
-            'pdfs'   => self::get_post_pdfs($attachments)
-        ];
+        $images = self::get_post_images($attachments);
+        $pdfs   = self::get_post_pdfs($attachments);
+
+        $attachments_array = array(
+            'images' => $images, 
+            'pdfs'   => $pdfs
+        );
+        return $attachments_array;
     }
 
     public static function get_post_images($attachments)
@@ -128,6 +132,9 @@ class Single extends Controller
                 $attached_pdfs[$attach->post_excerpt] = $attach;
             }
         }
-        return $attached_pdfs;
+
+        if(isset($attached_pdfs)) {
+            return $attached_pdfs;
+        }
     }
 }
