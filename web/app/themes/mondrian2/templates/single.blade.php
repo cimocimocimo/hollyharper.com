@@ -53,10 +53,19 @@
       @endforeach
 
       @if( isset(Single::get_post_attachments()['pdfs']) )
-        <div>hello</div>
+        @foreach( Single::get_post_attachments()['pdfs'] as $attached_pdfs)
+
+          @if($attached_pdfs)
+            {{--  I don't know how the PDF attachment types were differentiated before, 
+                  so just going to assume floorplan is the only attachment --}}
+            {!! var_dump($attached_pdfs) !!}
+            <a href="{{ $attached_pdfs->guid }}">Floorplan</a>
+          @endif
+
+        @endforeach
       @endif
 
-    @endif
+    @endif {{-- end if else blog --}}
 
   @endwhile
 @endsection
