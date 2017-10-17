@@ -105,7 +105,7 @@ add_action( 'init', function() {
  * @return return type
  */
 function create_post_type() {
-  register_post_type( 'hh_organization',
+  register_post_type( 'organizations',
     array(
           'labels' => array(
             'name' => _x('Organizations', 'post type general name'),
@@ -130,6 +130,7 @@ function create_post_type() {
       'menu_position' => 4,
       'taxonomies'  =>  array('post_tag'),
       'supports' => array('title','editor','author','thumbnail','excerpt','custom-fields','revisions','page-attributes'),
+      'has_archive' => true,
     )
   );
 }
