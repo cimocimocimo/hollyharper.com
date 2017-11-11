@@ -31,6 +31,7 @@
 				// Print the next organization type header
 ?>
 				<div class="org_type_header"><?php echo $org_type; ?></div>
+				<li class="org_title"><a href="<?php echo $org_link; ?>"><?php the_title(); ?></a><?php echo ($org_desc != '' ? ' - ' .$org_desc : ''); ?></li>
 <?php
 
 				$previous_org_type = $org_type;
