@@ -137,4 +137,20 @@ class Single extends Controller
             return $attached_pdfs;
         }
     }
+    
+    public static function show_interior_features() {
+        global $post;
+
+        $int_features = get_the_terms( $post->ID, 'interior-features');
+        if ( is_array($int_features) ) {
+            $output .= '<dt>Interior Features</dt>';
+            $output .= '<ul class="interior-features">';
+            foreach ( $int_features as $feature ) {
+                $output .= '<li class="feature">' . $feature->name . '</li>';
+            }
+            $output .= '</ul>';
+            return '<dl class="interior-features feature-list">' . "\n" . $output . "\n" . '</dl>';
+        }
+        return $int_features;
+    }
 }

@@ -65,6 +65,22 @@
         @endforeach
       @endif
 
+      @if(in_category('sold'))
+        {{ $listing_title = 'SOLD - ' . get_the_title() }}
+      @else
+        {{ $listing_title = get_the_title() }}
+      @endif
+
+      @if( Single::old_single_post_in_loop_data() )
+        @php
+          $listing = Single::old_single_post_in_loop_data()['listing']
+        @endphp
+        {!! $listing->price->data !!}
+      @endif
+
+      {{ the_content() }}
+      {!! var_dump(Single::show_interior_features()) !!}
+
     @endif {{-- end if else blog --}}
 
   @endwhile
