@@ -401,6 +401,6 @@ function custom_feed_rewrite($wp_rewrite) {
 }
 add_filter('generate_rewrite_rules', 'custom_feed_rewrite');
 
-
+add_filter( 'acf/settings/remove_wp_meta_box', '__return_false' );
 
 ?>
