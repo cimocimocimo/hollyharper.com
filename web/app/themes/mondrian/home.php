@@ -70,7 +70,7 @@ get_sidebar('seller');
 ?>
 	</div><!-- .side .col -->
   <div class="main col">
-    <div class="garden-tour">
+    <div class="garden-tour" style="display: none;">
       <div class="block-header">
         <h2>Victoria, BC Events</h2>
       </div>
