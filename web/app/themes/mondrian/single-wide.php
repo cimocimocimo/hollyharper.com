@@ -221,19 +221,21 @@ while ( have_posts() ){
     </div>
     <div class="col main-half">
       <?php show_lot_features(); ?>
-      
+
+      <!--
       <div class="listing-location">
         <h4>Location</h4>
         <?php 
         
-        echo $map->static_map_img();
+        // echo $map->static_map_img();
         
-        if (isset($map->location)){
-            echo $map->location;
-        }
+        // if (isset($map->location)){
+        //     echo $map->location;
+        // }
         
         ?>
       </div>
+        -->
       
     </div>
     
