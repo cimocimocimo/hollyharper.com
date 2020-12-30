@@ -1,0 +1,6 @@
+# development files, these should be deleted later
+# TODO: delete these files after they are no longer needed, after the site has been deployed and is working.
+/archive/
+/*.tar.gz
+/releases/
+/trellis.bak/
