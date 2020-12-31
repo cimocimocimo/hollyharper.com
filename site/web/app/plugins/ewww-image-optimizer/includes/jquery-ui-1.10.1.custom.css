@@ -221,7 +221,7 @@
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
 	border: 1px solid #d3d3d3;
-	background: #e6e6e6 /*url(images/ui-bg_glass_75_e6e6e6_1x400.png)*/ 50% 50% repeat-x;
+	background: #e6e6e6 50% 50% repeat-x;
 	font-weight: normal;
 	color: #555555;
 }
@@ -238,7 +238,7 @@
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
 	border: 1px solid #999999;
-	background: #dadada /*url(images/ui-bg_glass_75_dadada_1x400.png)*/ 50% 50% repeat-x;
+	background: #dadada 50% 50% repeat-x;
 	font-weight: normal;
 	color: #212121;
 }
@@ -253,7 +253,7 @@
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
 	border: 1px solid #aaaaaa;
-	background: #ffffff /*url(images/ui-bg_glass_65_ffffff_1x400.png)*/ 50% 50% repeat-x;
+	background: #ffffff 50% 50% repeat-x;
 	font-weight: normal;
 	color: #212121;
 }
@@ -316,27 +316,24 @@
 	filter:Alpha(Opacity=35); /* For IE8 - See #6059 */
 }
 /*  jQuery UI Tooltip 1.10.1 */
-
 .ui-tooltip {
         padding: 8px;
         position: absolute;
         z-index: 9999;
         max-width: 300px;
         min-width: 130px;
+	border-radius: 8px;
+	background: #fff;
 }
-
 body .ui-tooltip {
         border-width: 1px;
 }
-
 .ui-tooltip, .arrow:after {
-        border: 1px solid #d7d7d7;
+        border: 1px solid #272727;
 }
-
 .ui-tooltip {
         padding: 5px 10px;
 }
-
 .arrow {
         width: 70px;
         height: 16px;
@@ -347,16 +344,13 @@ body .ui-tooltip {
         bottom: -16px;
         z-index: 99999;
 }
-
 .arrow.top {
         top: -16px;
         bottom: auto;
 }
-
 .arrow.left {
         left: 20%;
 }
-
 .arrow:after {
         content: "";
         position: absolute;
@@ -371,12 +365,11 @@ body .ui-tooltip {
         -o-transform: rotate(45deg);
         tranform: rotate(45deg);
 }
-
 .arrow.top:after {
         bottom: -20px;
         top: auto;
 }
-
+/* media library actions and details */
 a.removeimage, a.restoreimage {
 	cursor: pointer;
 }
@@ -398,7 +391,306 @@ a.removeimage, a.restoreimage {
 .ewww-attachment-detail {
 	padding: 13px 0px 0px;
 }
-.ewww-toggle {
-	color: #0073aa;
-	cursor:pointer;
+.ewww-variant-icon {
+	color: white;
+	background-color: #f1900e;
+	border-radius: 50%;
+	font-size: 10px;
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+	text-align: center;
+	display: inline-block;
+	padding-bottom: 0px;
+}
+/* bulk and settings ui */
+h2.ewww-hndle {
+	font-size: 14px;
+	padding: 8px 12px;
+	margin: 0;
+	line-height: 1.4;
+	user-select: none;
+	border-bottom: 1px solid #eee;
+	touch-action: none;
+	cursor: pointer;
+}
+button.ewww-handlediv {
+	color: #72777c;
+	display: block;
+	cursor: pointer;
+	float: right;
+	width: 36px;
+	height: 36px;
+}
+.js .postbox .ewww-handlediv .toggle-indicator:before {
+	margin-top: 4px;
+	width: 20px;
+	border-radius: 50%;
+	text-indent: -1px;
+}
+.js .postbox.closed .ewww-handlediv .toggle-indicator:before {
+	content: "\f140";
+}
+.ewww-bulk-error {
+	color: red;
+}
+.ewww-bulk-error a, .ewww-bulk-error a:visited {
+	color: red;
+}
+#ewww-bulk-controls {
+	border: solid 1px #e5e5e5;
+	background: #fff;
+	padding: 10px;
+	float: right;
+	width: 24%;
+	max-width: 360px;
+	margin-left: 15px;
+}
+#ewww-bulk-forms {
+	float: left;
+	min-width: 50%;
+	max-width: 65%;
+	border: solid 1px #e5e5e5;
+	background: #fff;
+	padding: 0 10px 12px;
+}
+#ewww-delay-slider {
+	margin: 0 0 15px 10px;
+	max-width: 500px;
+}
+#ewww-delay {
+	max-width: 50px;
+	min-width: 30px;
+}
+@media screen and (max-width: 780px) {
+	#ewww-bulk-controls {
+		float: none;
+		margin-left: 0px;
+		max-width: none;
+		width: auto;
+	}
+	#ewww-bulk-forms {
+		margin: 10px 0;
+		float: none;
+		max-width: none;
+		width: auto;
+	}
+}
+/* settings tabs */
+.ewww-tab span { font-size: 14px; font-weight: 600; color: #555; text-decoration: none; line-height: 36px; padding: 0 10px; }
+.ewww-tab span:hover { color: #464646; }
+.ewww-tab { margin: 0 0 0 5px; padding: 0px; border-width: 1px 1px 1px; border-style: solid solid none; border-image: none; border-color: #ccc; display: inline-block; background-color: #e4e4e4; cursor: pointer }
+.ewww-tab:hover { background-color: #fff }
+.ewww-selected { background-color: #f1f1f1; margin-bottom: -1px; border-bottom: 1px solid #f1f1f1 }
+.ewww-selected span { color: #000; }
+.ewww-selected:hover { background-color: #f1f1f1; }
+.ewww-tab-nav { list-style: none; margin: 10px 0 0; padding-left: 5px; border-bottom: 1px solid #ccc; }
+/* optimization status section */
+#ewww-widgets {
+	max-width: 1000px;
+}
+#ewww-status .inside {
+	margin: 0;
+	padding: 0;
+}
+.ewww-blocks {
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	padding: 0;
+}
+#ewww-status h2.ewww-hndle {
+	border-bottom: 0;
+}
+.ewww-blocks div.ewww-status-detail {
+	border-left: 1px solid #e2e2e2;
+	margin: 0px;
+	padding: 2em;
+}
+.ewww-blocks div.ewww-status-detail:first-child {
+	border-left: 0;
+}
+.ewww-blocks div.ewww-status-detail {
+	border-top: 1px solid #e2e2e2;
+	/* display: block; */
+	text-align: center;
+	/* margin: 2em; */
+}
+.ewww-blocks #ewww-notices {
+	text-align: left;
+}
+.ewww-guage {
+	position: relative;
+	margin: 0 auto 1rem;
+	padding: 0;
+	width: 120px;
+	height: 120px;
+}
+.ewww-guage svg {
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+.ewww-inactive,
+.ewww-active {
+	fill: none;
+}
+.ewww-inactive {
+	stroke: #e6e6e6;
+}
+#ewww-compress, #ewww-savings, #easyio-savings {
+	flex: 1 1 120px;
+}
+#ewww-savings p {
+	margin: 0.5em 0;
+}
+#ewww-compress-guage .ewww-active {
+	stroke-linecap: round;
+}
+#ewww-compress-guage .ewww-red {
+	stroke: #dc3232;
+}
+#ewww-compress-guage .ewww-orange {
+	stroke: #ffb900;
+}
+#ewww-compress-guage .ewww-green {
+	stroke: #46b450;
+}
+#ewww-resize-guage .ewww-active {
+	stroke: #1d3c71;
+	stroke-linecap: round;
+}
+#ewww-savings-guage .ewww-active {
+	stroke: #3eadc9;
+	stroke-linecap: round;
+}
+#easyio-savings-guage .ewww-active {
+	stroke: #3eadc9;
+	stroke: #1d3c71;
+	stroke-linecap: round;
+}
+#ewww-compress-guage .ewww-score {
+	color: #444;
+}
+#ewww-resize-guage .ewww-score {
+	color: #1d3c71;
+}
+.ewww-score {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	padding: 0;
+	margin: 0;
+	transform: translate(-50%, -50%);
+	font-size: 1.3rem;
+	font-weight: bold;
+	line-height: 1.5;
+}
+#ewww-savings-guage .ewww-score {
+	font-size: 1rem;
+	color: #3eadc9;
+	white-space: nowrap;
+}
+#easyio-savings-guage .ewww-score {
+	font-size: 1rem;
+	color: #3eadc9;
+	color: #1d3c71;
+	white-space: nowrap;
+}
+.ewww-recommend {
+	display: none;
+}
+.ui-tooltip ul.ewww-tooltip {
+	list-style: disc outside none;
+}
+.ui-tooltip ul.ewww-tooltip li {
+	margin-left: 1em;
+}
+/* other settings UI */
+p.debug-actions {
+	clear: both;
+}
+#ewww-debug-info {
+	border:1px solid #e5e5e5;
+	background: #fff;
+	overflow: auto;
+	height: 300px;
+	width: 800px;
+}
+#ewwwio-banner {
+	margin-top: 10px;
+	min-height: 95px;
+	padding: 15px;
+	background-color: #3eadc9;
+	clear: both;
+}
+#ewwwio-banner img {
+	float: left;
+	margin-right: 10px;
+}
+#ewwwio-banner p {
+	color: #fff;
+	margin-bottom: 1.0em;
+}
+h3 a.ewww-upgrade {
+	font-weight:bold;
+	text-decoration: none;
+	color: #3eadc9;
+}
+.ewww-help-beacon-multi, .ewww-help-beacon-single, .ewww-help-external {
+	margin: 3px;
+}
+/* iframe ewww.io */
+.top-bar {
+	display: none;
+}
+/* mobile rules */
+@media screen and (max-width: 868px) {
+	.ewww-blocks {
+		flex-wrap: wrap;
+	}
+	.ewww-blocks div.ewww-status-detail {
+		padding: 1em 2em;
+	}
+	.ewww-status-detail p {
+		margin: 0.5em 0;
+	}
+	.ewww-blocks #ewww-notices {
+		width: 100%;
+		border-left: 0;
+	}
+	.ewww-overrides-nav {
+		display: none;
+	}
+}
+@media screen and (max-width: 568px) {
+	.ewww-blocks div.ewww-status-detail {
+		padding: 1em;
+	}
+}
+@media screen and (max-width: 782px) {
+	.ewww-tab-nav {
+		border-style: none;
+	}
+	.ewww-tab {
+		margin: 0 0 3px 3px;
+		border-style: solid;
+	}
+	.ewww-selected {
+		border-color: #ccc;
+	}
+	.ewww-tab span {
+		font-size: 12px;
+		padding: 2px 3px;
+
+	}
+	p.debug-actions {
+		margin-top: 30px;
+		clear: none;
+	}
+	#ewww-debug-info {
+		width: auto;
+	}
+	#ewww-settings-disable-resizes th, #ewww-settings-disable-resizes td {
+		display: table-cell;
+	}
 }

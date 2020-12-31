@@ -41,6 +41,10 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	'dbcache.debug_purge' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
 	'dbcache.enabled' => array(
 		'type' => 'boolean',
 		'default' => false
@@ -83,6 +87,10 @@ $keys = array(
 		'type' => 'string',
 		'default' => ''
 	),
+	'dbcache.memcached.binary_protocol' => array(
+		'type' => 'boolean',
+		'default' => true
+	),
 	'dbcache.redis.persistent' => array(
 		'type' => 'boolean',
 		'default' => true
@@ -100,6 +108,10 @@ $keys = array(
 	'dbcache.redis.dbid' => array(
 		'type' => 'integer',
 		'default' => 0
+	),
+	'dbcache.use_filters' => array(
+		'type' => 'boolean',
+		'default' => false
 	),
 	'dbcache.reject.constants' => array(
 		'type' => 'array',
@@ -124,7 +136,8 @@ $keys = array(
 		'default' => array(
 			'gdsr_',
 			'wp_rg_',
-			'_wp_session_'
+			'_wp_session_',
+			'_wc_session_'
 		)
 	),
 	'dbcache.reject.uri' => array(
@@ -148,6 +161,62 @@ $keys = array(
 		)
 	),
 
+	'lazyload.enabled' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'lazyload.process_img' => array(
+		'type' => 'boolean',
+		'default' => true
+	),
+	'lazyload.process_background' => array(
+		'type' => 'boolean',
+		'default' => true
+	),
+	'lazyload.googlemaps.google_maps_easy' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'lazyload.googlemaps.wp_google_maps' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'lazyload.googlemaps.wp_google_map_plugin' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'lazyload.exclude' => array(
+		'type' => 'array',
+		'default' => array(
+			'avia-bg-style-fixed',
+			'data-bgposition=',
+			'data-envira-src=',
+			'data-large_image=',
+			'data-lazy-original=',
+			'data-lazy-src=',
+			'data-lazyload=',
+			'data-lazysrc=',
+			'data-no-lazy=',
+			'data-src=',
+			'data-srcset=',
+			'fullurl=',
+			'lazy-slider-img=',
+			'loading="eager"',
+			'no-lazy',
+			'rev-slidebg',
+			'skip-lazy',
+			'soliloquy-image',
+			'swatch-img',
+			'w3-total-cache',
+			'woocommerce/assets/images/placeholder.png',
+			'wpcf7_captcha',
+		)
+	),
+	'lazyload.embed_method' => array(
+		'type' => 'string',
+		'default' => 'async_head'
+	),
+
 	'objectcache.configuration_overloaded' => array(
 		'type' => 'boolean',
 		'default' => false
@@ -160,9 +229,13 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	'objectcache.debug_purge' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
 	'objectcache.enabled_for_wp_admin' => array(
 		'type' => 'boolean',
-		'default' => true
+		'default' => false,
 	),
 	'objectcache.fallback_transients' => array(
 		'type' => 'boolean',
@@ -201,6 +274,10 @@ $keys = array(
 	'objectcache.memcached.password' => array(
 		'type' => 'string',
 		'default' => ''
+	),
+	'objectcache.memcached.binary_protocol' => array(
+		'type' => 'boolean',
+		'default' => true
 	),
 	'objectcache.redis.persistent' => array(
 		'type' => 'boolean',
@@ -269,6 +346,10 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	'pgcache.debug_purge' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
 	'pgcache.engine' => array(
 		'type' => 'string',
 		'default' => 'file_generic'
@@ -311,6 +392,10 @@ $keys = array(
 		'type' => 'string',
 		'default' => ''
 	),
+	'pgcache.memcached.binary_protocol' => array(
+		'type' => 'boolean',
+		'default' => true
+	),
 	'pgcache.redis.persistent' => array(
 		'type' => 'boolean',
 		'default' => true
@@ -341,6 +426,7 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	// name backwards-compatible. in reality works for apache too
 	'pgcache.cache.nginx_handle_xml' => array(
 		'type' => 'boolean',
 		'default' => false
@@ -429,6 +515,22 @@ $keys = array(
 			'wp-.*\.php',
 			'index\.php'
 		)
+	),
+	'pgcache.reject.categories' => array(
+		'type' => 'array',
+		'default' => array()
+	),
+	'pgcache.reject.tags' => array(
+		'type' => 'array',
+		'default' => array()
+	),
+	'pgcache.reject.authors' => array(
+		'type' => 'array',
+		'default' => array()
+	),
+	'pgcache.reject.custom' => array(
+		'type' => 'array',
+		'default' => array()
 	),
 	'pgcache.reject.ua' => array(
 		'type' => 'array',
@@ -532,10 +634,74 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	'pgcache.rest' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'pgcache.cookiegroups.enabled' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'pgcache.cookiegroups.groups' => array(
+		'type' => 'array',
+		'default' => array(
+			'mobile' => array(
+				'enabled' => false,
+				'cache' => true,
+				'cookies' => array(
+					'wptouch-pro-view=mobile',
+					'wptouch-pro-cache-state=mobile'
+				)
+			),
+			'loggedin' => array(
+				'enabled' => false,
+				'cache' => true,
+				'cookies' => array(
+					'wordpress_logged_in_.*'
+				)
+			),
+			'subscribers' => array(
+				'enabled' => false,
+				'cache' => true,
+				'cookies' => array(
+					'role=subscriber',
+					'role=member'
+				)
+			)
+		)
+	),
 
 	'stats.enabled' => array(
 		'type' => 'boolean',
 		'default' => false
+	),
+	'stats.slot_seconds' => array(
+		'type' => 'integer',
+		'default' => 60,
+	),
+	'stats.slots_count' => array(
+		'type' => 'integer',
+		'default' => 60,
+	),
+	'stats.cpu.enabled' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'stats.access_log.enabled' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'stats.access_log.filename' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'stats.access_log.format' => array(
+		'type' => 'string',
+		'default' => '%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"'
+	),
+	'stats.access_log.webserver' => array(
+		'type' => 'string',
+		'default' => ''
 	),
 
 	'minify.configuration_overloaded' => array(
@@ -595,6 +761,10 @@ $keys = array(
 	'minify.memcached.password' => array(
 		'type' => 'string',
 		'default' => ''
+	),
+	'minify.memcached.binary_protocol' => array(
+		'type' => 'boolean',
+		'default' => true
 	),
 	'minify.redis.persistent' => array(
 		'type' => 'boolean',
@@ -662,12 +832,9 @@ $keys = array(
 		'type' => 'array',
 		'default' => array(
 			'google_ad_',
-			'RSPEAK_'
+			'RSPEAK_',
+			'mfunc'
 		)
-	),
-	'minify.css.combine' => array(
-		'type' => 'boolean',
-		'default' => false
 	),
 	'minify.css.enable' => array(
 		'type' => 'boolean',
@@ -676,6 +843,10 @@ $keys = array(
 	'minify.css.engine' => array(
 		'type' => 'string',
 		'default' => 'css'
+	),
+	'minify.css.method' => array(
+		'type' => 'string',
+		'default' => 'both'
 	),
 	'minify.css.http2push' => array(
 		'type' => 'boolean',
@@ -712,6 +883,10 @@ $keys = array(
 	'minify.js.engine' => array(
 		'type' => 'string',
 		'default' => 'js'
+	),
+	'minify.js.method' => array(
+		'type' => 'string',
+		'default' => 'both'
 	),
 	'minify.js.combine.header' => array(
 		'type' => 'boolean',
@@ -922,9 +1097,13 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	'cdn.flush_manually' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
 	'cdn.engine' => array(
 		'type' => 'string',
-		'default' => 'maxcdn'
+		'default' => 'stackpath2'
 	),
 	'cdn.uploads.enable' => array(
 		'type' => 'boolean',
@@ -944,7 +1123,7 @@ $keys = array(
 	),
 	'cdn.theme.files' => array(
 		'type' => 'string',
-		'default' => '*.css;*.js;*.gif;*.png;*.jpg;*.ico;*.ttf;*.otf,*.woff,*.less'
+		'default' => '*.css;*.js;*.gif;*.png;*.jpg;*.ico;*.ttf;*.otf;*.woff;*.woff2;*.less'
 	),
 	'cdn.minify.enable' => array(
 		'type' => 'boolean',
@@ -997,6 +1176,14 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	'cdn.admin.media_library' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'cdn.cors_header' => array(
+		'type' => 'boolean',
+		'default' => true
+	),
 
 	'cdn.ftp.host' => array(
 		'type' => 'string',
@@ -1029,6 +1216,18 @@ $keys = array(
 	'cdn.ftp.ssl' => array(
 		'type' => 'string',
 		'default' => 'auto'
+	),
+	'cdn.ftp.default_keys' => array(
+		'type' => 'boolean',
+		'default' => true
+	),
+	'cdn.ftp.pubkey' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdn.ftp.privkey' => array(
+		'type' => 'string',
+		'default' => ''
 	),
 
 	'cdn.google_drive.client_id' => array(
@@ -1085,6 +1284,10 @@ $keys = array(
 		'type' => 'string',
 		'default' => ''
 	),
+	'cdn.s3.bucket.location' => array(
+		'type' => 'string',
+		'default' => 'us-east-1'
+	),
 	'cdn.s3.cname' => array(
 		'type' => 'array',
 		'default' => array()
@@ -1110,6 +1313,10 @@ $keys = array(
 	'cdn.cf.bucket' => array(
 		'type' => 'string',
 		'default' => ''
+	),
+	'cdn.cf.bucket.location' => array(
+		'type' => 'string',
+		'default' => 'us-east-1'
 	),
 	'cdn.cf.id' => array(
 		'type' => 'string',
@@ -1228,33 +1435,25 @@ $keys = array(
 		'type' => 'string',
 		'default' => 'auto'
 	),
-	'cdn.netdna.alias' => array(
+	'cdn.limelight.short_name' => array(
 		'type' => 'string',
 		'default' => ''
 	),
-	'cdn.netdna.consumerkey' => array(
+	'cdn.limelight.username' => array(
 		'type' => 'string',
 		'default' => ''
 	),
-	'cdn.netdna.consumersecret' => array(
+	'cdn.limelight.api_key' => array(
 		'type' => 'string',
 		'default' => ''
 	),
-	'cdn.netdna.authorization_key' => array(
-		'type' => 'string',
-		'default' => ''
-	),
-	'cdn.netdna.domain' => array(
+	'cdn.limelight.host.domains' => array(
 		'type' => 'array',
 		'default' => array()
 	),
-	'cdn.netdna.ssl' => array(
+	'cdn.limelight.ssl' => array(
 		'type' => 'string',
 		'default' => 'auto'
-	),
-	'cdn.netdna.zone_id' => array(
-		'type' => 'integer',
-		'default' => 0
 	),
 	'cdn.maxcdn.authorization_key' => array(
 		'type' => 'string',
@@ -1352,6 +1551,50 @@ $keys = array(
 		'type' => 'string',
 		'default' => 'auto'
 	),
+	'cdn.stackpath.authorization_key' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdn.stackpath.domain' => array(
+		'type' => 'array',
+		'default' => array()
+	),
+	'cdn.stackpath.ssl' => array(
+		'type' => 'string',
+		'default' => 'auto'
+	),
+	'cdn.stackpath.zone_id' => array(
+		'type' => 'integer',
+		'default' => 0
+	),
+	'cdn.stackpath2.client_id' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdn.stackpath2.client_secret' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdn.stackpath2.stack_id' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdn.stackpath2.site_id' => array(
+		'type' => 'string',
+		'default' => 0
+	),
+	'cdn.stackpath2.site_root_domain' => array(
+		'type' => 'string',
+		'default' => 0
+	),
+	'cdn.stackpath2.domain' => array(
+		'type' => 'array',
+		'default' => array()
+	),
+	'cdn.stackpath2.ssl' => array(
+		'type' => 'string',
+		'default' => 'auto'
+	),
 	'cdn.reject.admins' => array(
 		'type' => 'boolean',
 		'default' => false
@@ -1384,6 +1627,99 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
+	'cdnfsd.enabled' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'cdnfsd.engine' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.debug' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'cdnfsd.cloudfront.access_key' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.cloudfront.secret_key' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.cloudfront.distribution_id' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.limelight.short_name' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.limelight.username' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.limelight.api_key' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.maxcdn.api_key' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.maxcdn.zone_id' => array(
+		'type' => 'integer',
+		'default' => 0
+	),
+	'cdnfsd.stackpath.api_key' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.stackpath.zone_id' => array(
+		'type' => 'integer',
+		'default' => 0
+	),
+	'cdnfsd.stackpath2.client_id' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.stackpath2.client_secret' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.stackpath2.stack_id' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.stackpath2.site_id' => array(
+		'type' => 'string',
+		'default' => 0
+	),
+	'cdnfsd.stackpath2.site_root_domain' => array(
+		'type' => 'string',
+		'default' => 0
+	),
+	'cdnfsd.stackpath2.domain' => array(
+		'type' => 'array',
+		'default' => array()
+	),
+	'cdnfsd.stackpath2.ssl' => array(
+		'type' => 'string',
+		'default' => 'auto'
+	),
+	'cdnfsd.transparentcdn.client_id' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.transparentcdn.client_secret' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'cdnfsd.transparentcdn.company_id' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+
 	'varnish.configuration_overloaded' => array(
 		'type' => 'boolean',
 		'default' => false
@@ -1413,10 +1749,6 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => false
 	),
-	'browsercache.hsts' => array(
-		'type' => 'boolean',
-		'default' => false
-	),
 	'browsercache.no404wp' => array(
 		'type' => 'boolean',
 		'default' => false
@@ -1425,7 +1757,7 @@ $keys = array(
 		'type' => 'array',
 		'default' => array(
 			'robots\.txt',
-			'[a-z0-9_\-]*sitemap[a-z0-9_\-]*\.(xml|xsl|html)(\.gz)?'
+			'[a-z0-9_\-]*sitemap[a-z0-9_\.\-]*\.(xml|xsl|html)(\.gz)?'
 		)
 	),
 	'browsercache.cssjs.last_modified' => array(
@@ -1436,9 +1768,13 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => true
 	),
-	'browsercache.cssjs.expires' => array(
+	'browsercache.cssjs.brotli' => array(
 		'type' => 'boolean',
 		'default' => false
+	),
+	'browsercache.cssjs.expires' => array(
+		'type' => 'boolean',
+		'default' => true
 	),
 	'browsercache.cssjs.lifetime' => array(
 		'type' => 'integer',
@@ -1446,7 +1782,7 @@ $keys = array(
 	),
 	'browsercache.cssjs.nocookies' => array(
 		'type' => 'boolean',
-		'default' => false
+		'default' => true
 	),
 	'browsercache.cssjs.cache.control' => array(
 		'type' => 'boolean',
@@ -1458,7 +1794,7 @@ $keys = array(
 	),
 	'browsercache.cssjs.etag' => array(
 		'type' => 'boolean',
-		'default' => false
+		'default' => true
 	),
 	'browsercache.cssjs.w3tc' => array(
 		'type' => 'boolean',
@@ -1475,6 +1811,10 @@ $keys = array(
 	'browsercache.html.compression' => array(
 		'type' => 'boolean',
 		'default' => true
+	),
+	'browsercache.html.brotli' => array(
+		'type' => 'boolean',
+		'default' => false
 	),
 	'browsercache.html.last_modified' => array(
 		'type' => 'boolean',
@@ -1498,7 +1838,7 @@ $keys = array(
 	),
 	'browsercache.html.etag' => array(
 		'type' => 'boolean',
-		'default' => false
+		'default' => true
 	),
 	'browsercache.html.w3tc' => array(
 		'type' => 'boolean',
@@ -1516,9 +1856,13 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => true
 	),
-	'browsercache.other.expires' => array(
+	'browsercache.other.brotli' => array(
 		'type' => 'boolean',
 		'default' => false
+	),
+	'browsercache.other.expires' => array(
+		'type' => 'boolean',
+		'default' => true
 	),
 	'browsercache.other.lifetime' => array(
 		'type' => 'integer',
@@ -1526,7 +1870,7 @@ $keys = array(
 	),
 	'browsercache.other.nocookies' => array(
 		'type' => 'boolean',
-		'default' => false
+		'default' => true
 	),
 	'browsercache.other.cache.control' => array(
 		'type' => 'boolean',
@@ -1538,7 +1882,7 @@ $keys = array(
 	),
 	'browsercache.other.etag' => array(
 		'type' => 'boolean',
-		'default' => false
+		'default' => true
 	),
 	'browsercache.other.w3tc' => array(
 		'type' => 'boolean',
@@ -1556,6 +1900,151 @@ $keys = array(
 		'type' => 'array',
 		'default' => array()
 	),
+	'browsercache.security.session.cookie_httponly' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.session.cookie_secure' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.session.use_only_cookies' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.hsts' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'browsercache.security.hsts.directive' => array(
+		'type' => 'string',
+		'default' => 'maxage'
+	),
+	'browsercache.security.xfo' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'browsercache.security.xfo.directive' => array(
+		'type' => 'string',
+		'default' => 'same'
+	),
+	'browsercache.security.xfo.allow' => array(
+			'type' => 'string',
+			'default' => ''
+	),
+	'browsercache.security.xss' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'browsercache.security.xss.directive' => array(
+		'type' => 'string',
+		'default' => 'block'
+	),
+	'browsercache.security.xcto' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'browsercache.security.pkp' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'browsercache.security.pkp.pin' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.pkp.pin.backup' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.pkp.extra' => array(
+		'type' => 'string',
+		'default' => 'maxage'
+	),
+	'browsercache.security.pkp.report.url' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.pkp.report.only' => array(
+		'type' => 'string',
+		'default' => '0'
+	),
+	'browsercache.security.referrer.policy' => array(
+		'type' => 'boolean',
+		'default' => 'false'
+	),
+	'browsercache.security.referrer.policy.directive' => array(
+		'type' => 'string',
+		'default' => 'no-referrer-when-downgrade'
+	),
+	'browsercache.security.csp' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'browsercache.security.csp.base' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.frame' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.connect' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.font' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.script' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.style' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.img' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.media' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.object' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.plugin' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.form' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.frame.ancestors' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.sandbox' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.csp.default' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'browsercache.security.fp' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'browsercache.security.fp.values' => array(
+		'type' => 'array',
+		'default' => array()
+	),
+
 
 	'mobile.configuration_overloaded' => array(
 		'type' => 'boolean',
@@ -1568,63 +2057,136 @@ $keys = array(
 	'mobile.rgroups' => array(
 		'type' => 'array',
 		'default' => array(
-			'high' => array(
+			'tablets' => array(
 				'theme' => '',
 				'enabled' => false,
 				'redirect' => '',
 				'agents' => array(
-					'android',
-					'mobi',
-					'bada',
-					'incognito',
+					'a1-32ab0',
+					'a210',
+					'a211',
+					'b6000-h',
+					'b8000-h',
+					'bnrv200',
+					'bntv400',
+					'darwin',
+					'gt-n8005',
+					'gt-p3105',
+					'gt-p6810',
+					'gt-p7510',
+					'hmj37',
+					'hp-tablet',
+					'hp\sslate',
+					'hp\sslatebook',
+					'ht7s3',
+					'ideatab_a1107',
+					'ideataba2109a',
+					'ideos\ss7',
+					'imm76d',
+					'ipad',
+					'k00f',
+					'kfjwi',
+					'kfot',
+					'kftt',
 					'kindle',
-					'maemo',
-					'opera\ mini',
-					's8000',
-					'series60',
-					'ucbrowser',
-					'ucweb',
-					'webmate',
-					'webos'
+					'l-06c',
+					'lg-f200k',
+					'lg-f200l',
+					'lg-f200s',
+					'm470bsa',
+					'm470bse',
+					'maxwell',
+					'me173x',
+					'mediapad',
+					'midc497',
+					'msi\senjoy\s10\splus',
+					'mz601',
+					'mz616',
+					'nexus',
+					'nookcolor',
+					'pg09410',
+					'pg41200',
+					'pmp5570c',
+					'pmp5588c',
+					'pocketbook',
+					'qmv7a',
+					'sgp311',
+					'sgpt12',
+					'shv-e230k',
+					'shw-m305w',
+					'shw-m380w',
+					'sm-p605',
+					'smarttab',
+					'sonysgp321',
+					'sph-p500',
+					'surfpad',
+					'tab07-200',
+					'tab10-201',
+					'tab465euk',
+					'tab474',
+					'tablet',
+					'tegranote',
+					'tf700t',
+					'thinkpad',
+					'viewpad',
+					'voltaire'
 				)
 			),
-			'low' => array(
+			'phones' => array(
 				'theme' => '',
 				'enabled' => false,
 				'redirect' => '',
 				'agents' => array(
-					'2\.0\ mmp',
+					'(android|bb\d+|meego).+mobile',
 					'240x320',
+					'2.0\ mmp',
+					'\bppc\b',
+					'acer\ s100',
 					'alcatel',
 					'amoi',
+					'archos5',
 					'asus',
-					'au\-mic',
+					'au-mic',
 					'audiovox',
 					'avantgo',
+					'bada',
 					'benq',
 					'bird',
 					'blackberry',
 					'blazer',
 					'cdm',
 					'cellphone',
+					'cupcake',
 					'danger',
 					'ddipocket',
 					'docomo',
+					'docomo\ ht-03a',
 					'dopod',
-					'elaine/3\.0',
+					'dream',
+					'elaine/3.0',
 					'ericsson',
 					'eudoraweb',
 					'fly',
+					'froyo',
+					'googlebot-mobile',
 					'haier',
 					'hiptop',
-					'hp\.ipaq',
+					'hp.ipaq',
 					'htc',
+					'htc\ hero',
+					'htc\ magic',
+					'htc_dream',
+					'htc_magic',
 					'huawei',
-					'i\-mobile',
+					'i-mobile',
 					'iemobile',
 					'iemobile/7',
+					'iemobile/7.0',
 					'iemobile/9',
-					'j\-phone',
+					'incognito',
+					'iphone',
+					'ipod',
+					'j-phone',
 					'kddi',
 					'konka',
 					'kwc',
@@ -1632,27 +2194,34 @@ $keys = array(
 					'lenovo',
 					'lg',
 					'lg/u990',
+					'lg-gw620',
 					'lge\ vx',
+					'liquid\ build',
+					'maemo',
 					'midp',
-					'midp\-2\.0',
+					'midp-2.0',
 					'mmef20',
 					'mmp',
 					'mobilephone',
-					'mot\-v',
+					'mot-mb200',
+					'mot-mb300',
+					'mot-v',
 					'motorola',
-					'msie\ 10\.0',
+					'msie\ 10.0',
 					'netfront',
 					'newgen',
 					'newt',
+					'nexus\ 7',
+					'nexus\ one',
 					'nintendo\ ds',
 					'nintendo\ wii',
 					'nitro',
 					'nokia',
 					'novarra',
-					'o2',
 					'openweb',
+					'opera\ mini',
 					'opera\ mobi',
-					'opera\.mobi',
+					'opera.mobi',
 					'p160u',
 					'palm',
 					'panasonic',
@@ -1664,40 +2233,52 @@ $keys = array(
 					'playbook',
 					'playstation\ portable',
 					'portalmmm',
-					'\bppc\b',
 					'proxinet',
 					'psp',
 					'qtek',
+					's8000',
 					'sagem',
 					'samsung',
+					'samsung-s8000',
 					'sanyo',
 					'sch',
-					'sch\-i800',
+					'sch-i800',
 					'sec',
 					'sendo',
+					'series60.*webkit',
+					'series60/5.0',
 					'sgh',
 					'sharp',
-					'sharp\-tq\-gx10',
+					'sharp-tq-gx10',
 					'small',
 					'smartphone',
 					'softbank',
 					'sonyericsson',
+					'sonyericssone10',
+					'sonyericssonu20',
+					'sonyericssonx10',
 					'sph',
 					'symbian',
 					'symbian\ os',
 					'symbianos',
+					't-mobile\ mytouch\ 3g',
+					't-mobile\ opal',
+					'tattoo',
 					'toshiba',
+					'touch',
 					'treo',
-					'ts21i\-10',
-					'up\.browser',
-					'up\.link',
+					'ts21i-10',
+					'up.browser',
+					'up.link',
 					'uts',
 					'vertu',
 					'vodafone',
 					'wap',
+					'webmate',
+					'webos',
 					'willcome',
 					'windows\ ce',
-					'windows\.ce',
+					'windows.ce',
 					'winwap',
 					'xda',
 					'xoom',
@@ -1735,17 +2316,9 @@ $keys = array(
 	),
 
 
-	'common.edge' => array(
-		'type' => 'boolean',
-		'default' => false
-	),
-	'common.support' => array(
-		'type' => 'string',
-		'default' => ''
-	),
 	'common.track_usage' => array(
 		'type' => 'boolean',
-		'default' => true
+		'default' => false
 	),
 	'common.tweeted' => array(
 		'type' => 'boolean',
@@ -1772,6 +2345,10 @@ $keys = array(
 		'default' => true
 	),
 	'widget.pagespeed.key' => array(
+		'type' => 'string',
+		'default' => ''
+	),
+	'widget.pagespeed.key.restrict.referrer' => array(
 		'type' => 'string',
 		'default' => ''
 	),
@@ -1815,10 +2392,6 @@ $keys = array(
 		'type' => 'integer',
 		'default' => 300
 	),
-	'timelimit.cdn_container_create' => array(
-		'type' => 'integer',
-		'default' => 300
-	),
 	'timelimit.domain_rename' => array(
 		'type' => 'integer',
 		'default' => 120
@@ -1840,12 +2413,14 @@ $keys = array(
 	'extensions.active' => array(
 		'type' => 'array',
 		'default' => array(
-			'newrelic' => 'w3-total-cache/Extension_NewRelic_Plugin.php',
-			'fragmentcache' => 'w3-total-cache/Extension_FragmentCache_Plugin.php',
-			'swarmify' => 'w3-total-cache/Extension_Swarmify_Plugin.php'
+			'fragmentcache' => 'w3-total-cache/Extension_FragmentCache_Plugin.php'
 		)
 	),
 	'extensions.active_frontend' => array(
+		'type' => 'array',
+		'default' => array()
+	),
+	'extensions.active_dropin' => array(
 		'type' => 'array',
 		'default' => array()
 	),
@@ -1859,7 +2434,10 @@ $keys = array(
 		'default' => '',
 		'master_only' => true
 	),
-
+	'jquerymigrate.disabled' => array(
+		'type' => 'boolean',
+		'default' => false,
+	),
 
 	// extensions keys:
 	//

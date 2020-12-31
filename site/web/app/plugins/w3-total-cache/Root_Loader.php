@@ -29,6 +29,10 @@ class Root_Loader {
 			$plugins[] = new PgCache_Plugin();
 		if ( $c->get_boolean( 'cdn.enabled' ) )
 			$plugins[] = new Cdn_Plugin();
+		if ( $c->get_boolean( 'cdnfsd.enabled' ) )
+			$plugins[] = new Cdnfsd_Plugin();
+		if ( $c->get_boolean( 'lazyload.enabled' ) )
+			$plugins[] = new UserExperience_LazyLoad_Plugin();
 		if ( $c->get_boolean( 'browsercache.enabled' ) )
 			$plugins[] = new BrowserCache_Plugin();
 		if ( $c->get_boolean( 'minify.enabled' ) )
@@ -42,6 +46,7 @@ class Root_Loader {
 			$plugins[] = new Generic_Plugin_Admin();
 			$plugins[] = new BrowserCache_Plugin_Admin();
 			$plugins[] = new DbCache_Plugin_Admin();
+			$plugins[] = new UserExperience_Plugin_Admin();
 			$plugins[] = new ObjectCache_Plugin_Admin();
 			$plugins[] = new PgCache_Plugin_Admin();
 			$plugins[] = new Minify_Plugin_Admin();
@@ -51,19 +56,17 @@ class Root_Loader {
 			$plugins[] = new SystemOpCache_Plugin_Admin();
 
 			$plugins[] = new Cdn_Plugin_Admin();
-			if ( $c->get_string( 'cdn.engine' ) == 'highwinds' ) {
-			} else if ( $c->get_string( 'cdn.engine' ) != 'netdna' )
-					$plugins[] = new Cdn_Plugin_WidgetMaxCdn();
-				else
-					$plugins[] = new Cdn_Plugin_WidgetNetDna();
+			$plugins[] = new Cdnfsd_Plugin_Admin();
+			$cdn_engine = $c->get_string( 'cdn.engine' );
+			if ( $cdn_engine == 'maxcdn' ) {
+				$plugins[] = new Cdn_Plugin_WidgetMaxCdn();
+			}
 
-				if ( $c->get_boolean( 'widget.pagespeed.enabled' ) )
-					$plugins[] = new PageSpeed_Plugin_Widget();
+			if ( $c->get_boolean( 'widget.pagespeed.enabled' ) )
+				$plugins[] = new PageSpeed_Plugin_Widget();
 
-				$plugins[] = new Generic_Plugin_AdminCompatibility();
-
-			if ( !( defined( 'W3TC_PRO' ) || Util_Environment::is_w3tc_enterprise() ) )
-				$plugins[] = new Licensing_Plugin_Admin();
+			$plugins[] = new Generic_Plugin_AdminCompatibility();
+			$plugins[] = new Licensing_Plugin_Admin();
 
 			if ( $c->get_boolean( 'pgcache.enabled' ) ||
 				$c->get_boolean( 'varnish.enabled' ) )
@@ -72,6 +75,11 @@ class Root_Loader {
 			$plugins[] = new Extensions_Plugin_Admin();
 			$plugins[] = new Generic_Plugin_AdminNotifications();
 			$plugins[] = new UsageStatistics_Plugin_Admin();
+			$plugins[] = new SetupGuide_Plugin_Admin();
+		} else {
+			if ( $c->get_boolean( 'jquerymigrate.disabled' ) ) {
+				$plugins[] = new UserExperience_Plugin_Jquery();
+			}
 		}
 
 		$this->_loaded_plugins = $plugins;
@@ -124,8 +132,6 @@ class Root_Loader {
 		$c = Dispatcher::config();
 		$extensions = $c->get_array( 'extensions.active' );
 
-		$loaded = array();
-
 		$frontend = $c->get_array( 'extensions.active_frontend' );
 		foreach ( $frontend as $extension => $nothing ) {
 			if ( isset( $extensions[$extension] ) ) {
@@ -133,10 +139,9 @@ class Root_Loader {
 				$filename = W3TC_EXTENSION_DIR . '/' .
 					str_replace( '..', '', trim( $path, '/' ) );
 
-				if ( file_exists( $filename ) && !isset( $loaded[$filename] ) )
-					include $filename;
-
-				$loaded[$filename] = '*';
+				if ( file_exists( $filename ) ) {
+					include_once( $filename );
+				}
 			}
 		}
 
@@ -146,11 +151,16 @@ class Root_Loader {
 				$filename = W3TC_EXTENSION_DIR . '/' .
 					str_replace( '..', '', trim( $path, '/' ) );
 
-				if ( file_exists( $filename ) && !isset( $loaded[$filename] ) )
-					include $filename;
-
-				$loaded[$filename] = '*';
+				if ( file_exists( $filename ) ) {
+					include_once( $filename );
+				}
 			}
+		}
+
+		w3tc_do_action( 'wp_loaded' );
+		do_action( 'w3tc_extension_load' );
+		if ( is_admin() ) {
+			do_action( 'w3tc_extension_load_admin' );
 		}
 	}
 }

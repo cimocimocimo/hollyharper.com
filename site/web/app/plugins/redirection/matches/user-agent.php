@@ -1,46 +1,47 @@
 <?php
 
 class Agent_Match extends Red_Match {
-	function name() {
+	use FromNotFrom_Match;
+
+	public $agent;
+	public $regex;
+
+	public function name() {
 		return __( 'URL and user agent', 'redirection' );
 	}
 
 	public function save( array $details, $no_target_url = false ) {
 		$data = array(
-			'regex' => isset( $details['action_data_regex'] ) && $details['action_data_regex'] === 'true' ? true : false,
-			'agent' => isset( $details['action_data_agent'] ) ? $this->sanitize_agent( $details['action_data_agent'] ) : '',
+			'regex' => isset( $details['regex'] ) && $details['regex'] ? true : false,
+			'agent' => isset( $details['agent'] ) ? $this->sanitize_agent( $details['agent'] ) : '',
 		);
 
-		if ( $no_target_url === false ) {
-			$data['url_from'] = isset( $details['action_data_url_from'] ) ? $this->sanitize_url( $details['action_data_url_from'] ) : '';
-			$data['url_notfrom'] = isset( $details['action_data_url_notfrom'] ) ? $this->sanitize_url( $details['action_data_url_notfrom'] ) : '';
-		}
-
-		return $data;
+		return $this->save_data( $details, $no_target_url, $data );
 	}
 
 	private function sanitize_agent( $agent ) {
 		return $this->sanitize_url( $agent );
 	}
 
-	function get_target( $url, $matched_url, $regex ) {
-		// Check if referrer matches
-		$matched = $this->agent === Redirection_Request::get_user_agent();
+	public function is_match( $url ) {
 		if ( $this->regex ) {
-			$matched = preg_match( '@'.str_replace( '@', '\\@', $this->agent ).'@i', Redirection_Request::get_user_agent() ) > 0;
+			$regex = new Red_Regex( $this->agent, true );
+			return $regex->is_match( Redirection_Request::get_user_agent() );
 		}
 
-		$target = false;
-		if ( $this->url_from !== '' && $matched ) {
-			$target = $this->url_from;
-		} elseif ( $this->url_notfrom !== '' && ! $matched ) {
-			$target = $this->url_notfrom;
-		}
+		return $this->agent === Redirection_Request::get_user_agent();
+	}
 
-		if ( $regex && $target ) {
-			$target = $this->get_target_regex_url( $matched_url, $target, $url );
-		}
+	public function get_data() {
+		return array_merge( array(
+			'regex' => $this->regex,
+			'agent' => $this->agent,
+		), $this->get_from_data() );
+	}
 
-		return $target;
+	public function load( $values ) {
+		$values = $this->load_data( $values );
+		$this->regex = isset( $values['regex'] ) ? $values['regex'] : false;
+		$this->agent = isset( $values['agent'] ) ? $values['agent'] : '';
 	}
 }

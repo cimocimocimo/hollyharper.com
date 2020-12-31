@@ -29,7 +29,7 @@ if ( ! class_exists( 'YoastSimpleTaxonomies_Admin' ) ) {
 	class YoastSimpleTaxonomies_Admin {
 
 	    public static function add_config_page() {
-			add_posts_page('Yoast Simple Taxonomies Configuration', 'Simple Taxonomies', 10, basename(__FILE__), array( 'YoastSimpleTaxonomies_Admin', 'config_page' ) );
+			add_posts_page('Yoast Simple Taxonomies Configuration', 'Simple Taxonomies', "level_10", basename(__FILE__), array( 'YoastSimpleTaxonomies_Admin', 'config_page' ) );
 			add_filter( 'plugin_action_links', array( 'YoastSimpleTaxonomies_Admin', 'filter_plugin_actions' ), 10, 2 );
 		}
 

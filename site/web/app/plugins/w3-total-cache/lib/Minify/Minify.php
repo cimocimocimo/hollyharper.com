@@ -241,7 +241,8 @@ class Minify0_Minify {
         }
 
         $cg = new HTTP_ConditionalGet($cgOptions);
-        if ( $cg->cacheIsValid && !defined( 'W3TC_MINIFY_CONDITIONAL_OFF' ) ) {
+        if ( $cg->cacheIsValid && !self::$_options['disable_304'] &&
+        	!defined( 'W3TC_MINIFY_CONDITIONAL_OFF' ) ) {
             // client's cache is valid
             if (! self::$_options['quiet']) {
                 self::$lastServed = array(
@@ -308,7 +309,14 @@ class Minify0_Minify {
                     throw $e;
                 }
                 self::$_cache->store($cacheId, $content);
-                if (function_exists('gzencode') && self::$_options['encodeMethod'] && self::$_options['encodeOutput']) {
+                if (function_exists('brotli_compress') && self::$_options['encodeMethod'] === 'br' && self::$_options['encodeOutput']) {
+                    $compressed = $content;
+                    $compressed['content'] = brotli_compress($content['content']);
+
+                    self::$_cache->store($cacheId . '_' . self::$_options['encodeMethod'],
+                        $compressed);
+                }
+                if (function_exists('gzencode') && self::$_options['encodeMethod'] && self::$_options['encodeMethod'] !== 'br' && self::$_options['encodeOutput']) {
                     $compressed = $content;
                     $compressed['content'] = gzencode($content['content'],
                         self::$_options['encodeLevel']);
@@ -338,6 +346,10 @@ class Minify0_Minify {
 
                 case 'deflate':
                     $content['content'] = gzdeflate($content['content'], self::$_options['encodeLevel']);
+                    break;
+
+                case 'br':
+                    $content['content'] = brotli_compress($content['content']);
                     break;
             }
             // still need to encode
@@ -601,6 +613,12 @@ class Minify0_Minify {
         if ($type === self::TYPE_CSS && false !== strpos($content, '@import')) {
             $content = self::_handleCssImports($content);
         }
+        if ( $type === self::TYPE_CSS ) {
+            $content = apply_filters( 'w3tc_minify_css_content', $content, null, null );
+        }
+	if ( $type === self::TYPE_JS ) {
+	    $content = apply_filters( 'w3tc_minify_js_content', $content, null, null );
+	}
 
         // do any post-processing (esp. for editing build URIs)
         if (self::$_options['postprocessorRequire']) {
