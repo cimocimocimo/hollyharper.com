@@ -122,6 +122,10 @@ if (file_exists($env_config)) {
 
 Config::apply();
 
+/* Disable js/css for Contact Form 7 */
+define('WPCF7_LOAD_JS', false);
+define('WPCF7_LOAD_CSS', false);
+
 /**
  * Bootstrap WordPress
  */
