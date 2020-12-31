@@ -33,7 +33,7 @@ if ( ! class_exists( 'YoastSimpleTaxonomies_Admin' ) ) {
 			add_filter( 'plugin_action_links', array( 'YoastSimpleTaxonomies_Admin', 'filter_plugin_actions' ), 10, 2 );
 		}
 
-		function filter_plugin_actions( $links, $file ){
+		static function filter_plugin_actions( $links, $file ){
 			static $this_plugin;
 			if ( ! $this_plugin ) $this_plugin = plugin_basename( __FILE__ );
 			
