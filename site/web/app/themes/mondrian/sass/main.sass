@@ -1,0 +1,127 @@
+@import base
+@import owl.carousel
+@import logos
+
+.responsive-video
+  position: relative
+  height: 0
+
+  iframe
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+  &.aspect-16-9
+    padding-bottom: 56.25%
+
+#directory-index
+  width: 580px
+  margin: 5px 10px
+  overflow: hidden
+  .block
+    display: inline
+    float: left
+    margin: 5px 10px
+    width: 270px
+    overflow: hidden
+    h3, li
+      margin: 0 0 10px
+
+#newport-info
+  position: absolute
+  bottom: 31px
+  right: 99px
+  width: 340px
+  height: 101px
+
+  img
+    position: absolute
+    bottom: 10px
+    right: 20px
+
+  p
+    margin: 0
+    color: #969488
+    font-weight: bold
+    position: absolute
+    bottom: 10px
+    right: 115px
+    text-align: right
+    font-size: 12px
+    line-height: 20px
+
+#copyright
+  position: absolute
+  bottom: 0px
+  right: 0px
+  height: 30px
+  padding-right: 9px
+
+  p
+    margin: 0
+    line-height: 30px
+    font-size: 12px
+
+
+/* for the wide single post page
+.single-post-listing-wide
+  .main
+    width: 699px
+    background-color: #BFB59D
+    min-height: 480px
+
+  #header
+    background-image: url(../img/header-bg-wide.png)
+
+  #footer
+    background-image: url(../img/footer-bg-wide.png)
+
+  #newport-info
+    right: 0px
+
+.listing-wide-gallery
+  $thumb-size: 40px
+  $border-width: 1px
+
+  &__slides
+    @extend .owl-carousel
+
+    border-bottom: 1px solid white
+
+  &__slide
+    outline: none
+    width: 100%
+    height: 100%
+
+    img
+      width: 100%
+      height: 100%
+
+  &__pager
+    @extend %clearfix
+
+    display: block
+    background: #BFB59D
+    position: relative
+    list-style: none
+    text-align: center
+    padding: 0
+
+  &__thumb
+    position: relative
+    float: left
+    display: block
+    height: $thumb-size - $border-width
+    width: $thumb-size - $border-width
+    border-bottom: $border-width solid white
+    border-right: $border-width solid white
+    margin: 0
+    padding: 0
+    overflow: hidden
+
+    img
+      display: block
+      height: 100%
+      width: 100%
