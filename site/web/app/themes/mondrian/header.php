@@ -24,7 +24,7 @@ $page_data = (object)[
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <title><?php wp_title(' &bull; ',true,'right'); bloginfo('name'); ?></title>
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/css/main.css?v=1.0" />
     <script>
      window.pageData = <?php echo json_encode($page_data); ?>;
     </script>
