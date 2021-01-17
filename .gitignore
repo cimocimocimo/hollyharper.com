@@ -4,3 +4,9 @@
 /*.tar.gz
 /releases/
 /trellis.bak/
+
+# Emacs
+.ac-php-conf.json
+
+# Database dumps
+*.sql

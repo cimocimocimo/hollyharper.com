@@ -63,13 +63,6 @@ endforeach; // end current listing slideshow loop
 </div><!-- .row -->
 <div id="sold-blog-row" class="row last-row">
 	<div class="side col">
-<?php
-
-get_sidebar('seller');
-
-?>
-
-
 	</div><!-- .side .col -->
   <div class="main col">
   

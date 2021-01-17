@@ -2,7 +2,7 @@
 # List each machine only once per [group], even if it will host multiple sites.
 
 [production]
-54.227.162.5
+production_host ansible_host=54.227.162.5
 
 [web]
-54.227.162.5
+production_host ansible_host=54.227.162.5
