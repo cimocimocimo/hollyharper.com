@@ -1,8 +1,0 @@
-* Create scripts for starting and stoping the ec2 instances
-https://www.terraform.io/docs/configuration/outputs.html
-https://stackoverflow.com/questions/46518531/how-to-get-an-instance-id-arn-of-an-existing-ec2-instance-via-terraform
-https://docs.aws.amazon.com/cli/latest/reference/ec2/stop-instances.html
-```bash
-aws ec2 start-instances --instance-ids i-0ac1779b61edd96d6
-aws ec2 stop-instances --instance-ids i-0ac1779b61edd96d6
-```
